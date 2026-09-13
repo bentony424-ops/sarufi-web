@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found | Sarufi Energy Group</title>
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F6F3EC;
+    --ink:#17211D;
+    --ink-soft:#232B26;
+    --energy-mid:#1E7A57;
+    --energy-deep:#16513E;
+    --solar-navy:#0F2A44;
+    --solar-gold:#E8A94A;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+      radial-gradient(circle at 8% 12%, rgba(232,169,74,0.16) 0%, transparent 42%),
+      radial-gradient(circle at 92% 85%, rgba(30,122,87,0.18) 0%, transparent 48%),
+      var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    text-align:center;
+    padding:24px;
+  }
+  .wrap{ max-width:520px; }
+  .code{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:clamp(64px,14vw,110px);
+    line-height:1;
+    color:var(--energy-deep);
+    margin-bottom:8px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(22px,4vw,28px);
+    margin:0 0 12px;
+  }
+  p{
+    color:var(--ink-soft);
+    line-height:1.6;
+    font-size:15.5px;
+    margin:0 0 28px;
+  }
+  a.home-btn{
+    display:inline-block;
+    background:var(--solar-navy);
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    padding:13px 26px;
+    border-radius:999px;
+    border:2px solid var(--solar-gold);
+    transition:transform .2s ease;
+  }
+  a.home-btn:hover{ transform:translateY(-2px); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="code">404</div>
+    <h1>This page took a wrong turn.</h1>
+    <p>The page you're looking for doesn't exist or may have moved. Let's get you back to solid ground.</p>
+    <a class="home-btn" href="./">Back to Homepage</a>
+  </div>
+
+  <!-- Cloudflare Web Analytics -->
+  <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f7e39bea81264fad8cea31cb65a1b9c1"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>

@@ -3,351 +3,2059 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sarufi Energy Group Ltd — Imagine Tomorrow</title>
-<meta name="description" content="Sarufi Energy Group Ltd champions clean, affordable energy and PET plastic waste recycling across Kenya and the region — building a circular economy for a greener tomorrow.">
-<link rel="icon" type="image/png" href="assets/sarufi-logo.png">
+<title>Sarufi Energy Group | Renewable Energy &amp; PET Waste Recycling in Kenya</title>
+<meta name="description" content="Sarufi Energy Group delivers solar power, energy management and PET plastic waste recycling solutions across Kenya — engineering a circular economy for institutions and communities.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://bentony424-ops.github.io/sarufi-web/">
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sarufi Energy Group">
+<meta property="og:title" content="Sarufi Energy Group | Renewable Energy & PET Waste Recycling in Kenya">
+<meta property="og:description" content="Solar power, energy management and PET plastic waste recycling — engineering a circular economy for institutions and communities across Kenya.">
+<meta property="og:url" content="https://bentony424-ops.github.io/sarufi-web/">
+<meta property="og:image" content="https://bentony424-ops.github.io/sarufi-web/assets/social-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sarufi Energy Group | Renewable Energy & PET Waste Recycling in Kenya">
+<meta name="twitter:description" content="Solar power, energy management and PET plastic waste recycling — engineering a circular economy for institutions and communities across Kenya.">
+<meta name="twitter:image" content="https://bentony424-ops.github.io/sarufi-web/assets/social-preview.jpg">
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="assets/site.webmanifest">
+<meta name="theme-color" content="#0F2A44">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F6F3EC;
+    --cream-deep:#EFEADD;
+    --ink:#17211D;
+    --ink-soft:#232B26;
+    --energy-deep:#16513E;
+    --energy-mid:#1E7A57;
+    --energy-accent:#D98E3D;
+    --energy-accent-text:#9C5D1B; /* AA-contrast-safe version of energy-accent for text on light backgrounds */
+    --pet-deep:#0E6E7C;
+    --pet-mid:#12909F;
+    --pet-accent:#7FC8B9;
+    --line:rgba(23,33,29,0.12);
+    --radius-lg:28px;
+    --radius-pill:999px;
+    --solar-navy:#0F2A44;
+    --solar-navy-deep:#0A1D30;
+    --solar-gold:#E8A94A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  .skip-link{
+    position:absolute;
+    left:12px;
+    top:-60px;
+    background:var(--solar-navy);
+    color:#fff;
+    padding:10px 18px;
+    border-radius:8px;
+    z-index:2000;
+    text-decoration:none;
+    font-weight:600;
+    font-family:'Poppins',sans-serif;
+    transition:top .2s ease;
+  }
+  .skip-link:focus{ top:12px; }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+    outline:3px solid var(--solar-gold);
+    outline-offset:2px;
+  }
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><circle cx='14' cy='14' r='6' fill='none' stroke='%23E8A94A' stroke-width='2'/><circle cx='14' cy='14' r='1.6' fill='%23E8A94A'/></svg>") 14 14, auto;
+  }
+  a, button, .nav-cta, .nav-links a, .brand, .logo-standalone{
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><circle cx='15' cy='15' r='9' fill='none' stroke='%23E8A94A' stroke-width='2.2'/><circle cx='15' cy='15' r='2.4' fill='%23E8A94A'/></svg>") 15 15, pointer;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+
+  /* ---------- NAVBAR ---------- */
+  .nav-wrap{
+    position:sticky;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+    display:flex;
+    justify-content:center;
+    padding:14px 20px;
+    background:var(--cream);
+    pointer-events:none;
+  }
+  .nav-stack{
+    width:100%;
+    max-width:1280px;
+  }
+  .nav-row{
+    pointer-events:auto;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    width:100%;
+  }
+  .logo-standalone{
+    flex:0 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:128px;
+    height:128px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 14px 30px rgba(15,42,68,0.22);
+    transition:width .45s cubic-bezier(.4,0,.2,1), height .45s cubic-bezier(.4,0,.2,1), box-shadow .45s ease;
+    text-decoration:none;
+  }
+  .logo-standalone.shrunk{ width:84px; height:84px; box-shadow:0 8px 18px rgba(15,42,68,0.18); }
+  .logo-standalone img{ width:100%; height:100%; object-fit:contain; padding:10px; }
+
+  .nav-island{
+    pointer-events:auto;
+    display:flex;
+    align-items:center;
+    gap:26px;
+    flex:1 1 auto;
+    min-width:0;
+    background:
+      linear-gradient(135deg, var(--solar-navy) 0%, var(--solar-navy-deep) 100%) padding-box,
+      linear-gradient(90deg, var(--energy-mid) 0%, var(--solar-gold) 50%, var(--energy-mid) 100%) border-box;
+    border:2px solid transparent;
+    border-radius:var(--radius-pill);
+    padding:12px 22px;
+    box-shadow:0 16px 40px rgba(10,29,48,0.35);
+    transition:padding .45s cubic-bezier(.4,0,.2,1), box-shadow .45s ease, gap .45s ease, opacity .45s ease;
+  }
+  .nav-island.shrunk{
+    padding:8px 18px;
+    opacity:.94;
+    box-shadow:0 8px 22px rgba(10,29,48,0.28);
+    gap:20px;
+  }
+  .phone-pill{
+    flex:0 0 auto;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:var(--solar-gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--solar-navy-deep);
+    text-decoration:none;
+    box-shadow:0 10px 24px rgba(232,169,74,0.4);
+    transition:width .45s ease, height .45s ease, transform .2s ease;
+  }
+  .phone-pill:hover{ transform:translateY(-1px) scale(1.04); }
+  .phone-pill.shrunk{ width:42px; height:42px; }
+  .phone-pill svg{ width:22px; height:22px; }
+  .phone-pill.shrunk svg{ width:18px; height:18px; }
+  .brand-word{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:23px;
+    line-height:1.05;
+    white-space:nowrap;
+    color:#fff;
+    flex:0 0 auto;
+    transition:font-size .45s ease;
+  }
+  .nav-island.shrunk .brand-word{ font-size:18px; }
+  .brand-word span{ display:block; font-family:'Inter',sans-serif; font-weight:600; font-size:11px; letter-spacing:.08em; color:var(--solar-gold); margin-top:2px; }
+
+  .nav-links{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:4px;
+    margin:0 0 0 auto;
+    padding:0;
+    flex-wrap:nowrap;
+  }
+  .nav-links a{
+    position:relative;
+    text-decoration:none;
+    color:rgba(255,255,255,0.88);
+    font-family:'Poppins',sans-serif;
+    font-size:15.5px;
+    font-weight:600;
+    padding:11px 16px;
+    border-radius:var(--radius-pill);
+    transition:color .25s ease, background .25s ease;
+    white-space:nowrap;
+  }
+  .nav-links a:hover{ color:#fff; background:rgba(255,255,255,0.08); }
+  .nav-links a.active{ color:var(--solar-navy-deep); }
+  .nav-links{ position:relative; }
+  .nav-indicator{
+    position:absolute;
+    top:0; left:0;
+    height:100%;
+    border-radius:var(--radius-pill);
+    background:var(--solar-gold);
+    transition:transform .4s cubic-bezier(.4,0,.2,1), width .4s cubic-bezier(.4,0,.2,1);
+    z-index:-1;
+  }
+  .nav-cta{
+    flex:0 0 auto;
+    background:var(--solar-gold);
+    color:var(--solar-navy-deep);
+    text-decoration:none;
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:14.5px;
+    padding:12px 22px;
+    border-radius:var(--radius-pill);
+    transition:padding .45s ease, transform .2s ease;
+  }
+  .nav-cta:hover{ transform:translateY(-1px); }
+  .nav-cta.shrunk{ padding:9px 18px; font-size:13.5px; }
+
+  .nav-toggle{
+    display:none;
+    flex:0 0 auto;
+    width:38px;
+    height:38px;
+    margin-left:auto;
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+  }
+  .nav-toggle span{
+    display:block;
+    width:22px;
+    height:2px;
+    background:#fff;
+    border-radius:2px;
+    position:relative;
+    transition:transform .25s ease, opacity .25s ease;
+  }
+  .nav-toggle span::before, .nav-toggle span::after{
+    content:"";
+    position:absolute;
+    left:0;
+    width:22px;
+    height:2px;
+    background:#fff;
+    border-radius:2px;
+    transition:transform .25s ease, top .25s ease;
+  }
+  .nav-toggle span::before{ top:-7px; }
+  .nav-toggle span::after{ top:7px; }
+  .nav-toggle.open span{ background:transparent; }
+  .nav-toggle.open span::before{ transform:rotate(45deg); top:0; }
+  .nav-toggle.open span::after{ transform:rotate(-45deg); top:0; }
+
+  .nav-mobile-panel{
+    display:none;
+    pointer-events:auto;
+    max-width:1280px;
+    margin:10px auto 0;
+    background:linear-gradient(135deg, var(--solar-navy) 0%, var(--solar-navy-deep) 100%);
+    border:2px solid transparent;
+    border-radius:24px;
+    box-shadow:0 16px 40px rgba(10,29,48,0.35);
+    overflow:hidden;
+    max-height:0;
+    transition:max-height .35s ease;
+  }
+  .nav-mobile-panel.open{ max-height:400px; }
+  .nav-mobile-panel ul{
+    list-style:none;
+    margin:0;
+    padding:10px;
+  }
+  .nav-mobile-panel a{
+    display:block;
+    text-decoration:none;
+    color:rgba(255,255,255,0.9);
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:15.5px;
+    padding:13px 16px;
+    border-radius:14px;
+  }
+  .nav-mobile-panel a:hover, .nav-mobile-panel a:active{ background:rgba(255,255,255,0.08); color:#fff; }
+  .nav-mobile-panel a.mobile-cta{
+    margin-top:6px;
+    background:var(--solar-gold);
+    color:var(--solar-navy-deep);
+    text-align:center;
+  }
+
+  .nav-cta{ text-decoration:none; }
+
+  @media (max-width:980px){
+    .nav-links{ display:none; }
+    .nav-toggle{ display:flex; }
+    .nav-mobile-panel{ display:block; }
+  }
+
+  /* ---------- SPACER / SECTION HEADERS ---------- */
+  .home-spacer{ padding-top:8px; }
+  .section{
+    max-width:1180px;
+    margin:0 auto;
+    padding:48px 24px 40px;
+    scroll-margin-top:120px;
+  }
+  #about{
+    padding-top:56px;
+    padding-bottom:64px;
+    max-width:100%;
+    background:
+      radial-gradient(circle at 8% 12%, rgba(232,169,74,0.16) 0%, transparent 42%),
+      radial-gradient(circle at 92% 85%, rgba(30,122,87,0.18) 0%, transparent 48%),
+      linear-gradient(180deg, var(--cream-deep) 0%, var(--cream) 100%);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  #about > *{
+    max-width:1180px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-left:24px;
+    padding-right:24px;
+  }
+  .section-eyebrow{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  .section h2.section-title{
+    font-size:clamp(28px,4vw,40px);
+    max-width:640px;
+    margin-bottom:16px;
+  }
+  .section-lede{
+    font-size:16.5px;
+    color:var(--ink-soft);
+    line-height:1.65;
+    max-width:640px;
+  }
+  .placeholder-flag{
+    display:inline-block;
+    margin-top:18px;
+    font-size:12.5px;
+    color:var(--energy-accent-text);
+    background:rgba(217,142,61,0.12);
+    padding:6px 12px;
+    border-radius:var(--radius-pill);
+  }
+
+  /* Quick contact strip below widgets */
+  .quick-contact{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px 20px;
+  }
+  .quick-contact-inner{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:22px 28px;
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:32px;
+  }
+  .qc-item{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .qc-label{
+    font-size:11.5px;
+    font-weight:600;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+  }
+  .qc-value{
+    font-size:15px;
+    font-weight:600;
+  }
+  a.qc-item:hover .qc-value{ color:var(--energy-deep); }
+  .qc-socials{
+    display:flex;
+    gap:12px;
+  }
+  .social-icon{
+    width:44px; height:44px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none;
+    transition:transform .2s ease, box-shadow .2s ease;
+    flex:0 0 auto;
+  }
+  .social-icon:hover{ transform:translateY(-2px); box-shadow:0 8px 18px rgba(0,0,0,0.18); }
+  .social-icon svg{ width:24px; height:24px; }
+  .social-instagram{ background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+  .social-facebook{ background:#1877F2; }
+  .social-linkedin{ background:#0A66C2; }
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    white-space:nowrap;
+    text-decoration:none;
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:14.5px;
+    color:var(--solar-navy-deep);
+    background:var(--solar-gold);
+    padding:13px 26px;
+    border-radius:999px;
+    box-shadow:0 10px 24px rgba(232,169,74,0.35);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 14px 28px rgba(232,169,74,0.45); }
+  .qc-cta{ margin-left:auto; }
+  @media (max-width:700px){ .qc-cta{ margin-left:0; } }
+  @media (max-width:700px){
+    .quick-contact-inner{ flex-direction:column; align-items:flex-start; }
+    .qc-socials{ margin-left:0; }
+  }
+
+  /* About */
+  .about-grid{
+    margin-top:36px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  @media (max-width:760px){ .about-grid{ grid-template-columns:1fr; } }
+  .vm-card{
+    border-radius:22px;
+    padding:30px 28px;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+  }
+  .vm-vision{ background:linear-gradient(135deg, var(--energy-mid) 0%, var(--energy-deep) 100%); }
+  .vm-mission{ background:linear-gradient(135deg, var(--pet-mid) 0%, var(--pet-deep) 100%); }
+  .vm-icon{
+    width:52px; height:52px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.18);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:18px;
+  }
+  .vm-icon svg{ width:26px; height:26px; }
+  .vm-card h3{ font-size:19px; margin-bottom:10px; color:#fff; }
+  .vm-card p{ font-size:14.5px; line-height:1.6; color:rgba(255,255,255,0.92); margin:0; }
+  .about-card{
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:24px;
+    background:#fff;
+  }
+  .about-card h3{ font-size:17px; margin-bottom:8px; color:var(--energy-deep); }
+  .about-card p{ font-size:14.5px; color:var(--ink-soft); line-height:1.55; margin:0; }
+
+  .people-grid{
+    margin-top:24px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:16px;
+  }
+  @media (max-width:900px){ .people-grid{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:560px){ .people-grid{ grid-template-columns:repeat(2,1fr); } }
+  .person-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-top:3px solid var(--energy-deep);
+    border-radius:16px;
+    padding:20px 14px 18px;
+    text-align:center;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .person-card:hover{ transform:translateY(-3px); box-shadow:0 12px 26px rgba(23,33,29,0.10); }
+  .person-avatar{
+    width:56px; height:56px;
+    margin:0 auto 12px;
+    border-radius:50%;
+    background:var(--cream-deep);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .person-avatar svg{ width:28px; height:28px; }
+  .person-avatar--pet{ background:rgba(14,110,124,0.10); }
+  .person-card h4{ font-size:14.5px; font-weight:700; margin:0 0 4px; color:var(--ink); }
+  .person-title{
+    font-size:12px;
+    font-weight:600;
+    color:var(--energy-accent);
+    display:block;
+    line-height:1.4;
+  }
+  .person-title--pet{ color:var(--pet-mid); }
+  .people-grid--pet .person-card{ border-top-color:var(--pet-deep); }
+
+  .stat-strip{
+    display:flex;
+    gap:48px;
+    margin:32px 0 40px;
+    flex-wrap:wrap;
+  }
+  .stat-num{
+    font-family:'Fraunces',serif;
+    font-size:36px;
+    font-weight:600;
+    color:var(--energy-deep);
+    line-height:1;
+  }
+  .stat-label{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin-top:6px;
+  }
+
+  .values-grid{
+    margin-top:24px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:16px;
+  }
+  @media (max-width:900px){ .values-grid{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:560px){ .values-grid{ grid-template-columns:repeat(2,1fr); } }
+  .value-item{ text-align:center; }
+  .value-photo{
+    width:100%;
+    aspect-ratio:1/1;
+    border-radius:16px;
+    background-size:cover;
+    background-position:center;
+    background-color:var(--cream-deep);
+    margin-bottom:10px;
+  }
+  .value-item span{ font-size:11px; color:var(--ink-soft); font-weight:600; }
+  .value-item h4{ font-size:14px; margin:2px 0 0; font-weight:600; }
+
+  .quick-list{
+    margin:18px 0 0;
+    padding:0;
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .quick-list li{
+    font-size:15px;
+    padding-left:26px;
+    position:relative;
+    color:var(--ink);
+  }
+  .quick-list li::before{
+    content:"";
+    position:absolute;
+    left:0; top:6px;
+    width:14px; height:14px;
+    border-radius:50%;
+    background:var(--energy-accent);
+  }
+  #pet .quick-list li::before{ background:var(--pet-mid); }
+
+  /* Energy / PET full sections */
+  .service-grid{
+    margin-top:36px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  @media (max-width:760px){ .service-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .service-grid{ grid-template-columns:1fr; } }
+  .service-tile{
+    border-radius:16px;
+    padding:20px 18px;
+    color:#fff;
+    font-size:14.5px;
+    font-weight:600;
+    min-height:96px;
+    display:flex;
+    align-items:flex-end;
+  }
+  #energy .service-tile:nth-child(1){ background:linear-gradient(135deg,#1E7A57,#0F3B2B); }
+  #energy .service-tile:nth-child(2){ background:linear-gradient(135deg,#2E8B63,#134430); }
+  #energy .service-tile:nth-child(3){ background:linear-gradient(135deg,#3C9A6E,#16513E); }
+  #energy .service-tile:nth-child(4){ background:linear-gradient(135deg,#D98E3D,#7A4E1E); }
+  #energy .service-tile:nth-child(5){ background:linear-gradient(135deg,#4FAE7C,#0F3B2B); }
+  #energy .service-tile:nth-child(6){ background:linear-gradient(135deg,#1E7A57,#D98E3D); }
+  #pet .service-tile:nth-child(1){ background:linear-gradient(135deg,#12909F,#093B45); }
+  #pet .service-tile:nth-child(2){ background:linear-gradient(135deg,#0E6E7C,#0A2E36); }
+  #pet .service-tile:nth-child(3){ background:linear-gradient(135deg,#2AA6B4,#0E6E7C); }
+  #pet .service-tile:nth-child(4){ background:linear-gradient(135deg,#7FC8B9,#0E6E7C); }
+  #pet .service-tile:nth-child(5){ background:linear-gradient(135deg,#3FB6A8,#093B45); }
+  #pet .service-tile:nth-child(6){ background:linear-gradient(135deg,#12909F,#7FC8B9); }
+
+  /* Projects */
+  .projects-grid{
+    margin-top:36px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  @media (max-width:900px){ .projects-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:600px){ .projects-grid{ grid-template-columns:1fr; } }
+  .project-card{
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+    background:#fff;
+  }
+  .project-thumb{
+    height:120px;
+    background:linear-gradient(135deg,var(--energy-mid),var(--energy-deep));
+  }
+  .project-body{ padding:16px 18px 20px; }
+  .project-kwp{ font-size:12px; font-weight:700; color:var(--energy-accent-text); margin-bottom:6px; }
+  .project-body h3{ font-size:15px; margin-bottom:4px; line-height:1.3; }
+  .project-body p{ font-size:13px; color:var(--ink-soft); margin:0; line-height:1.5; }
+
+  /* Tagline block (moved from old hero) under contact */
+  .tagline-block{
+    max-width:760px;
+    margin:0 auto;
+    text-align:center;
+    padding:64px 24px 90px;
+  }
+  .tagline-block h2{
+    font-size:clamp(26px,4vw,38px);
+    line-height:1.1;
+  }
+  .tagline-block p{
+    margin-top:16px;
+    font-size:16px;
+    color:var(--ink-soft);
+    line-height:1.6;
+  }
+
+  /* ---------- WIDGETS ---------- */
+  .widgets{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px 100px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  @media (max-width:860px){
+    .widgets{ grid-template-columns:1fr; }
+  }
+  .widget{
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:#fff;
+    display:flex;
+    flex-direction:column;
+  }
+  .widget-header{
+    padding:26px 30px 18px;
+  }
+  .widget-header h2{
+    font-size:26px;
+  }
+  .carousel{
+    position:relative;
+    aspect-ratio:4/3;
+    margin:0 22px;
+    border-radius:18px;
+    overflow:hidden;
+  }
+  .carousel-track{
+    position:absolute;
+    inset:0;
+  }
+  .slide{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:opacity .8s ease, transform .8s ease;
+    display:flex;
+    align-items:flex-end;
+  }
+  .slide.active{ opacity:1; transform:translate(0,0) scale(1); }
+
+  /* Three shared transition styles, randomly picked each tick */
+  .effect-fade .slide{ transform:none; }
+  .effect-slide .slide{ transform:translateX(6%); }
+  .effect-slide .slide.active{ transform:translateX(0); }
+  .effect-zoom .slide{ transform:scale(1.08); }
+  .effect-zoom .slide.active{ transform:scale(1); }
+  .slide-art{
+    position:absolute;
+    inset:0;
+  }
+  .energy .slide:nth-child(1) .slide-art{ background:linear-gradient(135deg,#1E7A57,#0F3B2B); }
+  .energy .slide:nth-child(2) .slide-art{ background:linear-gradient(135deg,#2E8B63,#134430); }
+  .energy .slide:nth-child(3) .slide-art{ background:linear-gradient(135deg,#3C9A6E,#16513E); }
+  .energy .slide:nth-child(4) .slide-art{ background:linear-gradient(135deg,#D98E3D,#7A4E1E); }
+  .energy .slide:nth-child(5) .slide-art{ background:linear-gradient(135deg,#4FAE7C,#0F3B2B); }
+  .energy .slide:nth-child(6) .slide-art{ background:linear-gradient(135deg,#1E7A57,#D98E3D); }
+
+  .pet .slide:nth-child(1) .slide-art{ background:linear-gradient(135deg,#12909F,#093B45); }
+  .pet .slide:nth-child(2) .slide-art{ background:linear-gradient(135deg,#0E6E7C,#0A2E36); }
+  .pet .slide:nth-child(3) .slide-art{ background:linear-gradient(135deg,#2AA6B4,#0E6E7C); }
+  .pet .slide:nth-child(4) .slide-art{ background:linear-gradient(135deg,#7FC8B9,#0E6E7C); }
+  .pet .slide:nth-child(5) .slide-art{ background:linear-gradient(135deg,#3FB6A8,#093B45); }
+  .pet .slide:nth-child(6) .slide-art{ background:linear-gradient(135deg,#12909F,#7FC8B9); }
+
+  .slide-icon{
+    position:relative;
+    margin:auto;
+    width:74px;
+    height:74px;
+    opacity:.9;
+  }
+  .slide-icon svg{ width:100%; height:100%; }
+
+  .caption-bar{
+    padding:18px 30px 26px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .caption-text{
+    font-size:15px;
+    font-weight:600;
+    color:var(--ink);
+    transition:opacity .3s ease;
+  }
+  .dots{
+    display:flex;
+    gap:6px;
+    margin-left:auto;
+  }
+  .dot{
+    width:6px; height:6px;
+    border-radius:50%;
+    background:var(--line);
+    transition:background .3s ease, width .3s ease;
+  }
+  .dot.active{ background:var(--ink-soft); width:16px; border-radius:3px; }
+
+  .widget.energy .widget-header h2{ color:var(--energy-deep); }
+  .widget.pet .widget-header h2{ color:var(--pet-deep); }
+
+  /* ---------- CONTACT BAND ---------- */
+  .contact-band{
+    background:var(--energy-deep);
+    color:var(--cream);
+    padding:64px 24px 56px;
+  }
+  .contact-inner{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:36px;
+  }
+  .contact-inner h3{
+    font-size:28px;
+    color:#fff;
+    max-width:360px;
+    line-height:1.2;
+  }
+  .contact-details{
+    display:flex;
+    gap:48px;
+    flex-wrap:wrap;
+  }
+  .contact-col{ font-size:14px; }
+  .contact-col .label{
+    color:rgba(246,243,236,0.8);
+    font-size:12px;
+    margin-bottom:8px;
+  }
+  .contact-col a{
+    color:var(--cream);
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+    display:block;
+  }
+  .contact-col a:hover{ text-decoration:underline; }
+  .social-row{ display:flex; gap:12px; margin-top:10px; }
+
+  .note{
+    max-width:1180px;
+    margin:0 auto;
+    padding:20px 24px 0;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    opacity:.7;
+  }
+
+  /* ---- Contact form ---- */
+  .contact-form-section{
+    background:var(--cream);
+    padding:90px 24px 70px;
+  }
+  .cf-inner{
+    max-width:1180px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:56px;
+    align-items:start;
+  }
+  @media (max-width:900px){
+    .cf-inner{ grid-template-columns:1fr; gap:32px; }
+  }
+  .cf-intro .eyebrow{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--energy-mid);
+    margin-bottom:10px;
+    display:block;
+  }
+  .cf-intro h2{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(28px,4vw,38px);
+    color:var(--ink);
+    line-height:1.15;
+    margin:0 0 16px;
+  }
+  .cf-intro p{
+    color:var(--ink-soft);
+    font-size:15.5px;
+    line-height:1.65;
+    max-width:420px;
+  }
+  .cf-card{
+    background:#fff;
+    border-radius:22px;
+    padding:36px;
+    box-shadow:0 18px 50px rgba(15,42,68,0.08);
+    border:1px solid rgba(15,42,68,0.06);
+  }
+  .cf-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+  @media (max-width:520px){ .cf-row{ grid-template-columns:1fr; } }
+  .cf-field{ margin-bottom:18px; }
+  .cf-field label{
+    display:block;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    color:var(--ink);
+    margin-bottom:7px;
+  }
+  .cf-field input,
+  .cf-field select,
+  .cf-field textarea{
+    width:100%;
+    font-family:'Inter',sans-serif;
+    font-size:14.5px;
+    color:var(--ink);
+    background:var(--cream);
+    border:1.5px solid rgba(15,42,68,0.12);
+    border-radius:12px;
+    padding:12px 14px;
+    transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .cf-field input:focus,
+  .cf-field select:focus,
+  .cf-field textarea:focus{
+    outline:none;
+    border-color:var(--energy-mid);
+    box-shadow:0 0 0 3px rgba(30,122,87,0.14);
+  }
+  .cf-field textarea{ resize:vertical; min-height:110px; }
+  .cf-field.cf-error input,
+  .cf-field.cf-error select,
+  .cf-field.cf-error textarea{
+    border-color:#C0473A;
+  }
+  .cf-error-msg{
+    display:none;
+    color:#C0473A;
+    font-size:12.5px;
+    margin-top:6px;
+  }
+  .cf-field.cf-error .cf-error-msg{ display:block; }
+  .cf-hp{ position:absolute; left:-9999px; opacity:0; height:0; width:0; }
+  .cf-submit{
+    width:100%;
+    border:none;
+    cursor:pointer;
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:15px;
+    color:var(--solar-navy-deep);
+    background:var(--solar-gold);
+    padding:14px 26px;
+    border-radius:999px;
+    box-shadow:0 10px 24px rgba(232,169,74,0.35);
+    transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+  }
+  .cf-submit:hover{ transform:translateY(-2px); box-shadow:0 14px 28px rgba(232,169,74,0.45); }
+  .cf-submit:disabled{ opacity:.65; cursor:not-allowed; transform:none; }
+  .cf-status{
+    margin-top:16px;
+    font-size:14px;
+    font-weight:600;
+    padding:12px 16px;
+    border-radius:12px;
+    display:none;
+  }
+  .cf-status.cf-success{ display:block; background:rgba(30,122,87,0.12); color:var(--energy-deep); }
+  .cf-status.cf-fail{ display:block; background:rgba(192,71,58,0.12); color:#8C2E24; }
+  .cf-note{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    opacity:.75;
+    margin-top:14px;
+  }
+
+  .site-footer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    max-width:1180px;
+    margin:0 auto;
+    padding:26px 24px 40px;
+    font-size:13px;
+    color:var(--ink-soft);
+    opacity:.8;
+  }
+  .footer-links{ display:flex; align-items:center; gap:10px; }
+  .footer-links a{
+    color:var(--ink-soft);
+    text-decoration:none;
+    font-weight:600;
+  }
+  .footer-links a:hover{ text-decoration:underline; color:var(--energy-mid); }
+  @media (max-width:600px){
+    .site-footer{ justify-content:center; text-align:center; }
+  }
+
+  .whatsapp-float{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#25D366;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 10px 26px rgba(0,0,0,0.28);
+    z-index:900;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .whatsapp-float svg{ width:30px; height:30px; }
+  .whatsapp-float:hover{
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:0 14px 32px rgba(0,0,0,0.32);
+  }
+  @media (max-width:600px){
+    .whatsapp-float{ width:52px; height:52px; right:16px; bottom:16px; }
+    .whatsapp-float svg{ width:27px; height:27px; }
+  }
+
+  /* ---- Map section ---- */
+  .map-section{
+    background:var(--cream);
+    padding:70px 24px 20px;
+  }
+  .map-inner{
+    max-width:1180px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .map-inner .eyebrow{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--energy-mid);
+    margin-bottom:10px;
+    display:block;
+  }
+  .map-inner h2{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(26px,4vw,34px);
+    color:var(--ink);
+    margin:0 0 10px;
+  }
+  .map-inner > p{
+    color:var(--ink-soft);
+    font-size:15px;
+    margin:0 0 28px;
+  }
+  .map-frame{
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 18px 50px rgba(15,42,68,0.14);
+    border:1px solid rgba(15,42,68,0.08);
+    line-height:0;
+  }
+  .map-frame iframe{ display:block; filter:saturate(1.05); }
+  .map-directions{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:22px;
+    text-decoration:none;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:14px;
+    color:var(--solar-navy);
+    border-bottom:2px solid var(--solar-gold);
+    padding-bottom:3px;
+    transition:gap .2s ease;
+  }
+  .map-directions svg{ width:16px; height:16px; }
+  .map-directions:hover{ gap:12px; }
+
+  /* ---- Impact counter ---- */
+  .impact-section{
+    background:linear-gradient(160deg, var(--solar-navy) 0%, var(--solar-navy-deep) 100%);
+    padding:90px 24px;
+  }
+  .impact-inner{
+    max-width:1100px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .impact-eyebrow{
+    display:block;
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--solar-gold);
+    margin-bottom:10px;
+  }
+  .impact-inner h2{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(26px,4vw,36px);
+    color:#fff;
+    margin:0 0 54px;
+  }
+  .impact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:36px;
+  }
+  @media (max-width:760px){
+    .impact-grid{ grid-template-columns:1fr; gap:44px; }
+  }
+  .impact-card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:24px;
+    padding:38px 28px 32px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .impact-visual{
+    position:relative;
+    width:140px;
+    height:140px;
+    margin-bottom:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  /* Waste card: murky drifting-debris animation */
+  .waste-ring{
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    background:radial-gradient(circle at 50% 55%, rgba(201,88,45,0.35) 0%, rgba(201,88,45,0.08) 55%, transparent 75%);
+    animation:wastePulse 3.2s ease-in-out infinite;
+  }
+  @keyframes wastePulse{
+    0%,100%{ transform:scale(0.94); opacity:.7; }
+    50%{ transform:scale(1.08); opacity:1; }
+  }
+  .waste-particle{
+    position:absolute;
+    bottom:14px;
+    width:9px;
+    height:9px;
+    border-radius:3px;
+    background:linear-gradient(135deg, #E8A94A, #C9582D);
+    opacity:0;
+    animation:wasteRise 4.5s ease-in infinite;
+  }
+  .waste-particle.wp1{ left:22px; animation-delay:0s; }
+  .waste-particle.wp2{ left:44px; width:6px; height:6px; animation-delay:.8s; }
+  .waste-particle.wp3{ left:66px; animation-delay:1.6s; }
+  .waste-particle.wp4{ left:88px; width:7px; height:7px; animation-delay:2.3s; }
+  .waste-particle.wp5{ left:108px; animation-delay:.4s; }
+  .waste-particle.wp6{ left:33px; width:5px; height:5px; animation-delay:3.1s; }
+  @keyframes wasteRise{
+    0%{ transform:translateY(0) rotate(0deg); opacity:0; }
+    12%{ opacity:.9; }
+    80%{ opacity:.5; }
+    100%{ transform:translateY(-118px) rotate(140deg); opacity:0; }
+  }
+
+  /* Energy card: rotating sun-ray animation */
+  .sun-core{
+    position:absolute;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:radial-gradient(circle, #FFE3A8 0%, var(--solar-gold) 55%, rgba(232,169,74,0) 78%);
+    animation:sunGlow 2.6s ease-in-out infinite;
+  }
+  @keyframes sunGlow{
+    0%,100%{ box-shadow:0 0 18px 4px rgba(232,169,74,0.35); }
+    50%{ box-shadow:0 0 30px 10px rgba(232,169,74,0.55); }
+  }
+  .sun-ray{
+    position:absolute;
+    width:3px;
+    height:26px;
+    border-radius:3px;
+    background:linear-gradient(var(--solar-gold), rgba(232,169,74,0));
+    top:8px;
+    left:50%;
+    transform-origin:50% 62px;
+    animation:sunRotate 14s linear infinite;
+  }
+  .sun-ray:nth-child(2){ animation-delay:-1.75s; }
+  .sun-ray:nth-child(3){ animation-delay:-3.5s; }
+  .sun-ray:nth-child(4){ animation-delay:-5.25s; }
+  .sun-ray:nth-child(5){ animation-delay:-7s; }
+  .sun-ray:nth-child(6){ animation-delay:-8.75s; }
+  .sun-ray:nth-child(7){ animation-delay:-10.5s; }
+  .sun-ray:nth-child(8){ animation-delay:-12.25s; }
+  .sun-ray:nth-child(9){ animation-delay:-14s; }
+  @keyframes sunRotate{
+    from{ transform:rotate(0deg); }
+    to{ transform:rotate(360deg); }
+  }
+
+  .impact-value{
+    display:flex;
+    align-items:baseline;
+    gap:6px;
+    margin-bottom:10px;
+  }
+  .impact-number{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:clamp(40px,6vw,54px);
+    color:#fff;
+    line-height:1;
+  }
+  .impact-unit{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:18px;
+    color:var(--solar-gold);
+  }
+  .impact-label{
+    color:rgba(255,255,255,0.72);
+    font-size:14.5px;
+    line-height:1.55;
+    max-width:280px;
+    margin:0;
+  }
+
+  /* ---- Project card lightbox ---- */
+  .project-card{ cursor:pointer; transition:transform .2s ease, box-shadow .2s ease; }
+  .project-card:hover, .project-card:focus-visible{
+    transform:translateY(-3px);
+    box-shadow:0 16px 34px rgba(15,42,68,0.16);
+  }
+  .lightbox-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(10,29,48,0.88);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:1500;
+    padding:32px;
+  }
+  .lightbox-overlay.open{ display:flex; }
+  .lightbox-figure{
+    max-width:min(1000px, 92vw);
+    max-height:88vh;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+  }
+  .lightbox-img{
+    max-width:100%;
+    max-height:78vh;
+    border-radius:16px;
+    box-shadow:0 24px 60px rgba(0,0,0,0.5);
+    object-fit:contain;
+  }
+  .lightbox-caption{
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    text-align:center;
+  }
+  .lightbox-close{
+    position:absolute;
+    top:22px;
+    right:26px;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    border:none;
+    background:rgba(255,255,255,0.14);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:background .2s ease;
+  }
+  .lightbox-close:hover{ background:rgba(255,255,255,0.26); }
+  .lightbox-close svg{ width:20px; height:20px; }
+</style>
 </head>
 <body>
 
-<!-- ===== NAV ===== -->
-<header class="site-nav">
-  <div class="container nav-inner">
-    <a href="index.html" class="nav-logo">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<a class="whatsapp-float" href="https://wa.me/254717501501" target="_blank" rel="noopener" aria-label="Chat with Sarufi Energy Group on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.47 14.38c-.29-.15-1.71-.85-1.98-.94-.27-.1-.46-.15-.66.15-.19.29-.75.94-.92 1.13-.17.19-.34.22-.63.07-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.66-1.59-.9-2.18-.24-.57-.48-.5-.66-.51h-.56c-.19 0-.51.07-.78.36s-1.02 1-1.02 2.43 1.05 2.82 1.2 3.01c.15.19 2.06 3.15 5 4.42.7.3 1.24.48 1.67.62.7.22 1.34.19 1.84.12.56-.08 1.71-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.26-.19-.55-.34z"/><path d="M12.02 2C6.5 2 2.02 6.48 2.02 12c0 1.86.51 3.6 1.4 5.09L2 22l5.05-1.32A9.94 9.94 0 0 0 12.02 22C17.54 22 22.02 17.52 22.02 12S17.54 2 12.02 2zm0 18.03c-1.68 0-3.24-.5-4.55-1.36l-.33-.21-3 .79.8-2.93-.22-.34a7.98 7.98 0 0 1-1.24-4.28c0-4.42 3.6-8.02 8.03-8.02s8.02 3.6 8.02 8.02-3.6 8.33-8.51 8.33z"/></svg>
+</a>
+
+<div class="nav-wrap">
+  <div class="nav-stack">
+  <div class="nav-row">
+    <a class="logo-standalone" href="#home" id="logoStandalone">
       <img src="assets/sarufi-logo.png" alt="Sarufi Energy Group logo">
-      <span class="nav-logo-text">Sarufi Energy<span>IMAGINE TOMORROW</span></span>
     </a>
-    <nav class="nav-links" id="navLinks">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="energy-services.html">Energy Management Services</a>
-      <a href="pet-recycling.html">PET Bottle Waste Recycling</a>
-      <a href="projects.html">Our Projects</a>
-      <a href="contact.html">Contact Us</a>
+    <nav class="nav-island" id="navIsland">
+      <span class="brand-word">Sarufi Energy<span>IMAGINE TOMORROW</span></span>
+      <ul class="nav-links" id="navLinks">
+        <div class="nav-indicator" id="navIndicator"></div>
+        <li><a href="#home" class="active" data-key="home">Home</a></li>
+        <li><a href="#about" data-key="about">About Us</a></li>
+        <li><a href="#energy" data-key="energy">Energy Management Services</a></li>
+        <li><a href="#pet" data-key="pet">PET Bottle Waste Recycling</a></li>
+        <li><a href="#projects" data-key="projects">Our Projects</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobilePanel">
+        <span></span>
+      </button>
     </nav>
-    <div class="nav-cta">
-      <a href="contact.html" class="btn btn-primary btn-sm">Get in Touch</a>
-      <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false"></button>
-    </div>
+    <a class="phone-pill" href="tel:+254717501501" id="phonePill" aria-label="Call Sarufi Energy Group">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </a>
   </div>
-</header>
-
-<!-- ===== HERO ===== -->
-<section class="hero" id="heroCarousel">
-  <div class="hero-slides">
-    <div class="hero-slide active" style="background-image:url('assets/hero-solar.jpg');"></div>
-    <div class="hero-slide" style="background-image:url('assets/solar-rows-sunset.jpg');"></div>
-    <div class="hero-slide" style="background-image:url('assets/hero-pet-bales.jpg');"></div>
-    <div class="hero-slide" style="background-image:url('assets/hero-recycling-bins.jpg');"></div>
+  <div class="nav-mobile-panel" id="navMobilePanel">
+    <ul>
+      <li><a href="#home" data-key="home">Home</a></li>
+      <li><a href="#about" data-key="about">About Us</a></li>
+      <li><a href="#energy" data-key="energy">Energy Management Services</a></li>
+      <li><a href="#pet" data-key="pet">PET Bottle Waste Recycling</a></li>
+      <li><a href="#projects" data-key="projects">Our Projects</a></li>
+      <li><a class="mobile-cta" href="#contact-form">Get a Quote</a></li>
+    </ul>
   </div>
-  <div class="hero-scrim"></div>
-  <div class="power-flow-graphic" aria-hidden="true">
-    <svg viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg">
-      <!-- ground -->
-      <line x1="10" y1="372" x2="550" y2="372" class="pfg-ground"/>
-
-      <!-- sun -->
-      <circle cx="70" cy="55" r="16" class="pfg-sun"/>
-      <line x1="70" y1="24" x2="70" y2="12" class="pfg-sun-ray"/>
-      <line x1="97" y1="36" x2="106" y2="27" class="pfg-sun-ray"/>
-      <line x1="43" y1="36" x2="34" y2="27" class="pfg-sun-ray"/>
-      <line x1="97" y1="74" x2="106" y2="83" class="pfg-sun-ray"/>
-
-      <!-- house -->
-      <polygon points="25,215 140,110 240,215" class="pfg-roof"/>
-      <rect x="45" y="215" width="175" height="155" class="pfg-house"/>
-      <rect x="68" y="250" width="36" height="36" class="pfg-window"/>
-      <rect x="150" y="250" width="36" height="36" class="pfg-window"/>
-      <rect x="112" y="300" width="44" height="70" class="pfg-door"/>
-
-      <!-- solar panels on roof slope -->
-      <g transform="translate(38,168) rotate(-42)">
-        <rect x="0" y="0" width="140" height="46" class="pfg-panel"/>
-        <line x1="35" y1="0" x2="35" y2="46" style="stroke:var(--sky-light); stroke-width:1;"/>
-        <line x1="70" y1="0" x2="70" y2="46" style="stroke:var(--sky-light); stroke-width:1;"/>
-        <line x1="105" y1="0" x2="105" y2="46" style="stroke:var(--sky-light); stroke-width:1;"/>
-        <line x1="0" y1="23" x2="140" y2="23" style="stroke:var(--sky-light); stroke-width:1;"/>
-      </g>
-
-      <!-- battery / inverter bank -->
-      <rect x="250" y="290" width="58" height="82" rx="6" class="pfg-batt-box"/>
-      <rect x="262" y="302" width="34" height="16" rx="2" class="pfg-batt-cell"/>
-      <rect x="262" y="324" width="34" height="16" rx="2" class="pfg-batt-cell" opacity="0.55"/>
-
-      <!-- lightbulb (home lighting) -->
-      <rect x="132" y="78" width="14" height="9" rx="2" class="pfg-bulb-base"/>
-      <circle cx="139" cy="63" r="16" class="pfg-bulb-glass"/>
-
-      <!-- fan (cooling) -->
-      <circle cx="185" cy="78" r="9" class="pfg-fan-body"/>
-      <g class="pfg-fan-blade">
-        <line x1="185" y1="78" x2="185" y2="54"/>
-        <line x1="185" y1="78" x2="207" y2="91"/>
-        <line x1="185" y1="78" x2="163" y2="91"/>
-      </g>
-
-      <!-- screen / appliances (a third, distinct household use) -->
-      <rect x="300" y="240" width="42" height="30" rx="4" class="pfg-fan-body"/>
-      <rect x="306" y="246" width="30" height="18" rx="2" class="pfg-screen"/>
-      <rect x="316" y="271" width="10" height="6" class="pfg-screen-stand"/>
-
-      <!-- EV charging post + car -->
-      <rect x="390" y="290" width="16" height="82" rx="3" class="pfg-charger-post"/>
-      <rect x="376" y="274" width="44" height="22" rx="6" class="pfg-charger-head"/>
-      <circle cx="398" cy="285" r="3.5" class="pfg-charger-led"/>
-      <rect x="430" y="350" width="95" height="30" rx="12" class="pfg-car-body"/>
-      <rect x="450" y="330" width="54" height="26" rx="10" class="pfg-car-cabin"/>
-      <circle cx="452" cy="380" r="10" class="pfg-car-wheel"/>
-      <circle cx="498" cy="380" r="10" class="pfg-car-wheel"/>
-
-      <!-- current flow -->
-      <path d="M170,175 C 220,175 235,240 279,290" class="pfg-wire pfg-wire-solar"/>
-      <path d="M262,290 C 230,220 180,120 139,87" class="pfg-wire pfg-wire-load"/>
-      <path d="M275,290 C 250,220 210,120 185,87" class="pfg-wire pfg-wire-load"/>
-      <path d="M300,300 C 310,290 314,280 318,271" class="pfg-wire pfg-wire-load"/>
-      <path d="M308,330 C 350,335 370,320 398,296" class="pfg-wire pfg-wire-ev"/>
-      <path d="M420,282 C 434,290 438,314 446,348" class="pfg-wire pfg-wire-ev"/>
-    </svg>
   </div>
-  <div class="container hero-inner">
-    <div class="hero-logo-feature">
-      <img src="assets/sarufi-logo.png" alt="Sarufi Energy Group logo">
-      <div class="hlf-text"><b>Sarufi Energy Group</b><span>IMAGINE TOMORROW</span></div>
-    </div>
-    <div class="hero-tag"><span class="loop-mark" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:currentColor;"></span> Clean Energy &amp; Circular Economy — Kenya</div>
-    <h1>Imagine tomorrow, <em>build it in the circle.</em></h1>
-    <p class="hero-sub">Sarufi Energy Group works with communities and industry to close the loop — recycling PET plastic waste into resource, and scaling clean, affordable, reliable energy through smart technology and capacity building.</p>
-    <div class="hero-actions">
-      <a href="energy-services.html" class="btn btn-primary">Energy Management Services</a>
-      <a href="pet-recycling.html" class="btn btn-outline">PET Bottle Waste Recycling</a>
-    </div>
-  </div>
-  <div class="scroll-cue"><span class="line"></span> Scroll</div>
-  <div class="hero-dots" id="heroDots">
-    <button class="hero-dot active" data-idx="0" aria-label="Show slide 1"></button>
-    <button class="hero-dot" data-idx="1" aria-label="Show slide 2"></button>
-    <button class="hero-dot" data-idx="2" aria-label="Show slide 3"></button>
-    <button class="hero-dot" data-idx="3" aria-label="Show slide 4"></button>
-  </div>
-</section>
+</div>
 
-<!-- ===== INTRO / ABOUT TEASER ===== -->
-<section class="section bg-paper">
-  <div class="container intro-grid">
-    <div class="intro-copy reveal">
-      <div class="eyebrow"><span class="loop-mark"></span> Who We Are</div>
-      <h2 style="font-size:clamp(1.8rem,3vw,2.4rem); font-weight:600; margin-bottom:22px;">A circular economy, engineered for real communities.</h2>
-      <p>At Sarufi, we "imagine tomorrow" and work with communities to promote the tenets of a circular economy — through waste recycling and expanding access to clean, affordable, reliable and sustainable energy, by scaling innovative technological and financial concepts alongside industry best practice.</p>
-      <p>Sarufi is professionally run, complete with a board of governance and expertise spanning decades across the globe. We work directly with our host communities and the underprivileged to drive socioeconomic empowerment, environmental awareness, and the eradication of poverty through employment creation.</p>
-      <div class="stat-row">
-        <div class="stat-chip"><div class="num">2</div><div class="lbl">Core Divisions</div></div>
-        <div class="stat-chip"><div class="num">9+</div><div class="lbl">Project Partners</div></div>
-        <div class="stat-chip"><div class="num">40+</div><div class="lbl">Yrs Combined Expertise</div></div>
+<main id="main-content">
+<div class="home-spacer" id="home"></div>
+
+<div class="widgets">
+
+  <div class="widget energy" id="widget-energy">
+    <div class="widget-header"><h2>Renewable Energy</h2></div>
+    <div class="carousel effect-fade" id="carousel-energy">
+      <div class="carousel-track">
+        <div class="slide active"><div class="slide-art" style="background-image:url('assets/images/renewable-energy-solutions.jpg');background-size:cover;background-position:center;" role="img" aria-label="Renewable Energy Solutions"></div></div>
+        <div class="slide"><div class="slide-art" style="background-image:url('assets/images/energy-management-systems.jpg');background-size:cover;background-position:center;" role="img" aria-label="Energy Management Systems"></div></div>
+        <div class="slide"><div class="slide-art" style="background-image:url('assets/images/energy-performance-systems.jpg');background-size:cover;background-position:center;" role="img" aria-label="Energy Performance Systems"></div></div>
+        <div class="slide"><div class="slide-art" style="background-image:url('assets/images/energy-audit-assessment.jpg');background-size:cover;background-position:center;" role="img" aria-label="Energy Audit & Assessment"></div></div>
+        <div class="slide"><div class="slide-art" style="background-image:url('assets/images/energy-sustainability.jpg');background-size:cover;background-position:center;" role="img" aria-label="Energy Sustainability"></div></div>
+        <div class="slide"><div class="slide-art" style="background-image:url('assets/images/energy-efficiency-solutions.jpg');background-size:cover;background-position:center;" role="img" aria-label="Energy Efficiency Solutions"></div></div>
       </div>
-      <div style="margin-top:36px;"><a href="about.html" class="btn btn-outline-dark btn-sm">More About Sarufi →</a></div>
     </div>
-    <div class="intro-visual reveal">
-      <img src="assets/team-solar-field.jpg" alt="PET plastic flakes ready for reprocessing at Sarufi">
-      <div class="intro-visual-badge">
-        <span class="loop-mark"></span>
-        <div><b>Waste to Resource</b><span>Closing the loop, one bottle at a time</span></div>
+    <div class="caption-bar">
+      <div class="caption-text" id="caption-energy">Renewable Energy Solutions</div>
+      <div class="dots" id="dots-energy"></div>
+    </div>
+  </div>
+
+  <div class="widget pet" id="widget-pet">
+    <div class="widget-header"><h2>PET Waste Recycling</h2></div>
+    <div class="carousel effect-fade" id="carousel-pet">
+      <div class="carousel-track">
+        <div class="slide active"><div class="slide-art" style="background-image:url('assets/images/pet-waste-handling.jpg');background-size:cover;background-position:center;" role="img" aria-label="PET Waste Handling"></div></div>
+        <div class="slide"><div class="slide-art" style="background-image:url('assets/images/pet-waste-recycling.jpg');background-size:cover;background-position:center;" role="img" aria-label="PET Waste Recycling"></div></div>
+        <div class="slide"><div class="slide-art" style="background-image:url('assets/images/pet-value-chain.jpg');background-size:cover;background-position:center;" role="img" aria-label="PET Value Chain"></div></div>
+        <div class="slide"><div class="slide-art" style="background-image:url('assets/images/environmental-impact-resource-management.jpg');background-size:cover;background-position:center;" role="img" aria-label="Environmental Impact & Resource Management"></div></div>
+        <div class="slide"><div class="slide-art" style="background-image:url('assets/images/socio-economic-benefits.jpg');background-size:cover;background-position:center;" role="img" aria-label="Socio-Economic Benefits"></div></div>
+        <div class="slide"><div class="slide-art" style="background-image:url('assets/images/integrated-automatic-recycling-system.jpg');background-size:cover;background-position:center;" role="img" aria-label="Integrated & Automatic Recycling System"></div></div>
       </div>
+    </div>
+    <div class="caption-bar">
+      <div class="caption-text" id="caption-pet">PET Waste Handling</div>
+      <div class="dots" id="dots-pet"></div>
+    </div>
+  </div>
+
+</div>
+
+<section class="quick-contact">
+  <div class="quick-contact-inner">
+    <a href="tel:+254717501501" class="qc-item">
+      <span class="qc-label">Phone</span>
+      <span class="qc-value">+254 717 501501</span>
+    </a>
+    <a href="mailto:info@sarufigroup.com" class="qc-item">
+      <span class="qc-label">Email</span>
+      <span class="qc-value">info@sarufigroup.com</span>
+    </a>
+    <div class="qc-item">
+      <span class="qc-label">Address</span>
+      <span class="qc-value">Nyati Sacco Plaza, Madaraka Roundabout</span>
+    </div>
+    <a href="#contact-form" class="btn-primary qc-cta">Get a Free Quote</a>
+    <div class="qc-socials">
+      <a href="https://instagram.com/sarufigroupltd" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon social-instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="white" stroke="none"/></svg>
+      </a>
+      <a href="https://facebook.com/SarufiEnergy" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon social-facebook">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M14 13.5h2.5l.5-3H14V8.5c0-.9.25-1.5 1.53-1.5H17V4.3C16.7 4.26 15.7 4.17 14.53 4.17c-2.44 0-4.11 1.49-4.11 4.22V10.5H7.9v3H10.42V20h3.08v-6.5z"/></svg>
+      </a>
+      <a href="https://linkedin.com/company/sarufi-energy-ltd" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon social-linkedin">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM3.5 8.75h3v11.5h-3zM9.5 8.75h2.87v1.57h.04c.4-.75 1.38-1.55 2.84-1.55 3.04 0 3.6 2 3.6 4.6v6.88h-3v-6.1c0-1.46-.03-3.33-2.03-3.33-2.04 0-2.35 1.6-2.35 3.23v6.2h-3z"/></svg>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ===== TWO SYSTEMS ONE CIRCLE ===== -->
-<section class="section bg-mist">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow"><span class="loop-mark"></span> What We Do</div>
-      <h2>Two systems. One circle.</h2>
-      <p>Energy and waste are two sides of the same circular story — what we save in one, we recover in the other. Sarufi runs both as a single, connected practice.</p>
+
+<section class="section" id="about">
+  <div class="section-eyebrow">Who we are</div>
+  <h2 class="section-title">A circular economy, engineered for real communities.</h2>
+  <p class="section-lede">At Sarufi, we "imagine tomorrow" and work with communities to promote the tenets of a circular economy — through waste recycling and expanding access to clean, affordable, reliable and sustainable energy, by scaling innovative technological and financial concepts alongside industry best practice.</p>
+  <p class="section-lede" style="margin-top:14px;">We work directly with our host communities and the underprivileged to drive socioeconomic empowerment, environmental awareness, and the eradication of poverty through employment creation.</p>
+
+  <div class="stat-strip">
+    <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">Core Divisions</div></div>
+    <div class="stat-item"><div class="stat-num">9+</div><div class="stat-label">Project Partners</div></div>
+    <div class="stat-item"><div class="stat-num">40+</div><div class="stat-label">Yrs Combined Expertise</div></div>
+  </div>
+
+  <div class="about-grid" style="grid-template-columns:1fr 1fr;">
+    <div class="vm-card vm-vision">
+      <div class="vm-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3.2"/></svg>
+      </div>
+      <h3>Our Vision</h3>
+      <p>To be the regional leader in plastic waste recycling, plastic processing and a champion of waste-to-energy, energy efficiency and management solutions, through deployment of technological innovation and capacity building.</p>
     </div>
-    <div class="pillars">
-      <div class="pillar-card energy reveal">
-        <div class="pc-bg" style="background-image:url('assets/solar-streetlight.jpg');"></div>
-        <div class="pc-scrim"></div>
-        <div class="pc-body">
-          <span class="pc-tag">01 · Energy</span>
-          <h3>Energy Management Services</h3>
-          <ul>
-            <li>Energy audits, assessments &amp; cost-benefit analysis</li>
-            <li>Solar, lighting &amp; efficiency retrofits</li>
-            <li>Lease-to-own, PPA &amp; energy-as-a-service financing</li>
-          </ul>
-          <a href="energy-services.html" class="btn btn-outline btn-sm">Explore Services →</a>
+    <div class="vm-card vm-mission">
+      <div class="vm-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+      </div>
+      <h3>Our Mission</h3>
+      <p>To sustainably contribute to Earth's regeneration, improvement of human life quality and preservation of the eco-system.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:56px; font-size:20px; color:var(--energy-deep);">Our Values</h3>
+  <div class="values-grid">
+    <div class="value-item"><div class="value-photo" style="background-image:url('assets/images/value-sustainability.jpg')" role="img" aria-label="Sarufi team value: Sustainability"></div><span>01</span><h4>Sustainability</h4></div>
+    <div class="value-item"><div class="value-photo" style="background-image:url('assets/images/value-teamwork.jpg')" role="img" aria-label="Sarufi team value: Team Work"></div><span>02</span><h4>Team Work</h4></div>
+    <div class="value-item"><div class="value-photo" style="background-image:url('assets/images/value-technology.jpg')" role="img" aria-label="Sarufi team value: Technology"></div><span>03</span><h4>Technology</h4></div>
+    <div class="value-item"><div class="value-photo" style="background-image:url('assets/images/value-integrity.jpg')" role="img" aria-label="Sarufi team value: Integrity"></div><span>04</span><h4>Integrity</h4></div>
+    <div class="value-item"><div class="value-photo" style="background-image:url('assets/images/value-environmental-protection.jpg')" role="img" aria-label="Sarufi team value: Environmental Protection"></div><span>05</span><h4>Environmental Protection</h4></div>
+  </div>
+
+  <h3 style="margin-top:56px; font-size:20px; color:var(--energy-deep);">Environmental Policy</h3>
+  <p class="section-lede" style="margin-top:10px;">Sarufi is continuously working to improve environmental impact through recycling of PET waste bottles for a clean and sustainable environment, and deployment of energy-efficient management solutions, through cost-saving capacity building programs and forward-thinking technological products. As a business, we are committed to: ensuring our activities are safe for our employees; complying with and exceeding local legal requirements while conforming to global best practice; preventing pollution from our processes; minimising waste across the business; and integrating environmental considerations into future policy decisions.</p>
+
+  <h3 style="margin-top:40px; font-size:20px; color:var(--energy-deep);">Equal Opportunity</h3>
+  <p class="section-lede" style="margin-top:10px;">Sarufi is an equal opportunity employer. We strive to ensure no resident, tenant, volunteer, staff member or applicant receives less favourable treatment on the grounds of disability, sex, gender reassignment, race, colour, nationality, ethnic origin, marital status, sexual orientation, age or religion — and we work to create a culture of mutual respect and tolerance across our whole team.</p>
+
+  <h3 style="margin-top:56px; font-size:20px; color:var(--energy-deep);">Board of Governance</h3>
+  <div class="people-grid">
+    <div class="person-card"><div class="person-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--energy-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Jong Woo Lee</h4><span class="person-title">Board Chair</span></div>
+    <div class="person-card"><div class="person-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--energy-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Nixon Oyugi</h4><span class="person-title">Member</span></div>
+    <div class="person-card"><div class="person-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--energy-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Jae Chul Park</h4><span class="person-title">Member</span></div>
+    <div class="person-card"><div class="person-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--energy-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Ebenezer Amadi</h4><span class="person-title">Member</span></div>
+    <div class="person-card"><div class="person-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--energy-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Zacky Opiyo</h4><span class="person-title">Member</span></div>
+  </div>
+
+  <h3 style="margin-top:52px; font-size:20px; color:var(--pet-deep);">Senior Management</h3>
+  <div class="people-grid people-grid--pet">
+    <div class="person-card"><div class="person-avatar person-avatar--pet"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pet-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Nixon Oyugi</h4><span class="person-title person-title--pet">CEO</span></div>
+    <div class="person-card"><div class="person-avatar person-avatar--pet"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pet-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Ken Odegih</h4><span class="person-title person-title--pet">COO</span></div>
+    <div class="person-card"><div class="person-avatar person-avatar--pet"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pet-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Zacky Opiyo</h4><span class="person-title person-title--pet">Director Legal</span></div>
+    <div class="person-card"><div class="person-avatar person-avatar--pet"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pet-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Reginah Ndirangu</h4><span class="person-title person-title--pet">Director Admin and Finance</span></div>
+    <div class="person-card"><div class="person-avatar person-avatar--pet"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pet-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Julie Odwesso</h4><span class="person-title person-title--pet">Director Business Development &amp; Partnerships</span></div>
+  </div>
+</section>
+
+<section class="section" id="energy">
+  <div class="section-eyebrow">01 · Energy</div>
+  <h2 class="section-title">Energy Management Services</h2>
+  <p class="section-lede">Energy and waste are two sides of the same circular story — what we save in one, we recover in the other. Sarufi empowers organisations to become more energy-efficient, sustainable and resilient, delivering innovative solutions and comprehensive capacity-building programmes that optimise energy consumption, reduce greenhouse gas emissions, and foster a culture of environmental stewardship.</p>
+  <ul class="quick-list">
+    <li>Energy audits, assessments &amp; cost-benefit analysis</li>
+    <li>Solar, lighting &amp; efficiency retrofits</li>
+    <li>Lease-to-own, PPA &amp; energy-as-a-service financing</li>
+  </ul>
+  <div class="service-grid" style="margin-top:32px;">
+    <div class="service-tile">Energy Audit &amp; Assessment</div>
+    <div class="service-tile">Innovative Energy Projects Financing</div>
+    <div class="service-tile">Energy Management Systems</div>
+    <div class="service-tile">Energy Efficiency Solutions</div>
+    <div class="service-tile">Training &amp; Capacity Building</div>
+    <div class="service-tile">Performance, Monitoring &amp; Reporting</div>
+  </div>
+  <div class="about-grid" style="margin-top:36px; grid-template-columns:1fr 1fr;">
+    <div class="about-card"><h3>Energy Audit &amp; Assessment</h3><p>Comprehensive audits to identify areas of energy waste and inefficiency, detailed assessments with customised recommendations, and cost-benefit analyses to support informed energy-saving decisions.</p></div>
+    <div class="about-card"><h3>Innovative Energy Projects Financing</h3><p>Lease-to-own (PPA), energy-as-a-service, outright purchases, and strategic partnerships with PE firms specialising in clean and renewable energy projects.</p></div>
+    <div class="about-card"><h3>Energy Management Systems</h3><p>Robust systems to monitor and control energy usage, advanced metering for real-time consumption data, and dashboards for tracking performance and optimisation opportunities.</p></div>
+    <div class="about-card"><h3>Energy Efficiency Solutions</h3><p>Energy-efficient lighting, HVAC systems and equipment upgrades, plus renewable technologies such as solar panels and wind turbines to offset consumption.</p></div>
+    <div class="about-card"><h3>Training &amp; Capacity Building</h3><p>Workshops and training on energy conservation, customised capacity-building programmes, and guidance on regulatory compliance and sustainability certifications.</p></div>
+    <div class="about-card"><h3>Performance, Monitoring &amp; Reporting</h3><p>Ongoing performance monitoring and regular progress reports, trend identification and benchmarking, plus support with certifications such as LEED or ENERGY STAR.</p></div>
+  </div>
+</section>
+
+<section class="section" id="pet">
+  <div class="section-eyebrow">02 · Recycling</div>
+  <h2 class="section-title">PET Bottle Waste Recycling</h2>
+  <p class="section-lede">At Sarufi, we "imagine tomorrow" and work with communities to ensure a global order under the tenets of a circular economy, with a focus on clean and sustainable on- and off-shore environments — through recycling PET bottle waste, championing economic growth by turning waste into resource and waste into power.</p>
+  <ul class="quick-list">
+    <li>Collection, sorting &amp; integrated processing</li>
+    <li>PET flakes, staple fibre, film &amp; strapping</li>
+    <li>Community cleanup &amp; circular job creation</li>
+  </ul>
+
+  <div class="about-grid" style="margin-top:32px;">
+    <div class="about-card"><h3>Environmental Impact</h3><p>PET bottles are made from non-renewable fossil fuels and take hundreds of years to decompose if not recycled, contributing to pollution of land, water and marine ecosystems.</p></div>
+    <div class="about-card"><h3>Energy Reduction</h3><p>Recycling PET significantly reduces energy consumption compared to producing new bottles from raw materials, cutting emissions tied to manufacturing.</p></div>
+    <div class="about-card"><h3>Resource Conservation</h3><p>Recovering and reusing petroleum and natural gas reduces extraction of limited resources and demand for other raw materials used in bottle production.</p></div>
+    <div class="about-card"><h3>Waste Reduction</h3><p>Diverting PET bottles from landfills and incinerators reduces the volume of waste and eases pressure on waste management systems.</p></div>
+    <div class="about-card"><h3>Economic Benefits</h3><p>Creates a circular economy and jobs across collection, sorting, processing and manufacturing, with recycled PET feeding new bottles, textiles and packaging.</p></div>
+    <div class="about-card"><h3>Awareness &amp; Education</h3><p>Campaigns and initiatives that help individuals, businesses and communities understand recycling, proper waste management, and reusable alternatives.</p></div>
+  </div>
+
+  <h3 style="margin-top:52px; font-size:20px; color:var(--pet-deep);">The scale of the problem</h3>
+  <div class="service-grid" style="margin-top:20px;">
+    <div class="service-tile">430M metric tons of plastic produced annually — set to triple by 2060</div>
+    <div class="service-tile">PET bottle waste takes up 25% of space in any dumpsite</div>
+    <div class="service-tile">PET bottles take 500–1000 years to decompose</div>
+    <div class="service-tile">Africa &amp; Asia account for 90% of ocean plastic waste</div>
+    <div class="service-tile">Africa produces ~6% of global plastic, but imports 70% of what it consumes</div>
+    <div class="service-tile">Africa is grappling with circularity and plastic waste mismanagement</div>
+  </div>
+
+  <h3 style="margin-top:52px; font-size:20px; color:var(--pet-deep);">Our integrated recycling system</h3>
+  <p class="section-lede" style="margin-top:10px;">Our integrated PET bottle waste recycling system maximises the value of PET waste, minimises waste generation, conserves resources, and reduces environmental impact — creating a circular economy where PET bottles are recycled, reused and transformed into valuable products.</p>
+  <div class="service-grid" style="margin-top:20px;">
+    <div class="service-tile">1. Feeding System — loading hopper, inclined conveyor</div>
+    <div class="service-tile">2. Separation Line — magnetic tumbler, sorting conveyor</div>
+    <div class="service-tile">3. Crushing Line — dry &amp; wet crusher, buffer silo, gravity separator</div>
+    <div class="service-tile">4. Washing &amp; Drying Line — hot/cold wash, dewatering, hydro cyclone, hot air dryer</div>
+    <div class="service-tile">5. Products Silo</div>
+    <div class="service-tile">6. End products — PET flakes, polyester staple fibre, film &amp; strap</div>
+  </div>
+
+  <h3 style="margin-top:52px; font-size:20px; color:var(--pet-deep);">What recycled PET becomes</h3>
+  <p class="section-lede" style="margin-top:10px;">Polyester staple fibre (solid, regular hollow, hollow conjugated), PET film and PET strap feed into home furnishing and toy stuffing, mattresses, pillows and bedding, non-woven textiles, and padding and wadding materials — which in turn become geotextiles, acoustic and thermal insulation, and carpet underlay.</p>
+</section>
+
+<section class="section" id="projects">
+  <div class="section-eyebrow">Proof it works</div>
+  <h2 class="section-title">Our Projects</h2>
+  <p class="section-lede">A selection of completed solar power installations delivered for technical colleges, institutes and private clients across Kenya — pulled straight from your live projects page.</p>
+  <div class="projects-grid">
+    <div class="project-card" tabindex="0" role="button" aria-haspopup="dialog" data-project="maasai" data-caption="The Maasai National Polytechnic — 104 kWp"><div class="project-thumb" style="background-image:url('assets/images/project-maasai-national-polytechnic.jpg');background-size:cover;background-position:center;" role="img" aria-label="Solar installation at The Maasai National Polytechnic, Narok County"></div><div class="project-body"><div class="project-kwp">104 kWp · Narok County</div><h3>The Maasai National Polytechnic</h3><p>Containerised solar system, 100kW hybrid inverter, 215kWh battery storage.</p></div></div>
+    <div class="project-card" tabindex="0" role="button" aria-haspopup="dialog" data-project="kwhisero" data-caption="Kwhisero Technical & Vocational College — 49 kWp"><div class="project-thumb" style="background-image:url('assets/images/project-kwhisero-tvc.jpg');background-size:cover;background-position:center;" role="img" aria-label="Solar installation at Kwhisero Technical & Vocational College, Kakamega County"></div><div class="project-body"><div class="project-kwp">49 kWp · Kakamega County</div><h3>Kwhisero Technical &amp; Vocational College</h3><p>60kW hybrid inverter with 128kWh lithium battery storage.</p></div></div>
+    <div class="project-card" tabindex="0" role="button" aria-haspopup="dialog" data-project="tharaka" data-caption="Tharaka TVC, Marimati — 20 kWp"><div class="project-thumb" style="background-image:url('assets/images/project-tharaka-tvc-marimati.jpg');background-size:cover;background-position:center;" role="img" aria-label="Solar installation at Tharaka TVC, Marimati, Tharaka-Nithi County"></div><div class="project-body"><div class="project-kwp">20 kWp · Tharaka-Nithi County</div><h3>Tharaka TVC, Marimati</h3><p>Rooftop solar power system for skills training facilities.</p></div></div>
+    <div class="project-card" tabindex="0" role="button" aria-haspopup="dialog" data-project="chanzeywe" data-caption="Chanzeywe Technical & Vocational College — 19.6 kWp"><div class="project-thumb" style="background-image:url('assets/images/project-chanzeywe-tvc.jpg');background-size:cover;background-position:center;" role="img" aria-label="Solar installation at Chanzeywe Technical & Vocational College, Vihiga County"></div><div class="project-body"><div class="project-kwp">19.6 kWp · Vihiga County</div><h3>Chanzeywe Technical &amp; Vocational College</h3><p>32 x 615W panels, 20kW hybrid inverter, 57kWh LiFePO4 battery bank.</p></div></div>
+    <div class="project-card" tabindex="0" role="button" aria-haspopup="dialog" data-project="planate" data-caption="Planate Management Group Africa Ltd — 30 kWp"><div class="project-thumb" style="background-image:url('assets/images/project-planate-management-group.jpg');background-size:cover;background-position:center;" role="img" aria-label="Solar installation at Planate Management Group Africa Ltd, Nairobi"></div><div class="project-body"><div class="project-kwp">30 kWp · Nairobi</div><h3>Planate Management Group Africa Ltd</h3><p>Grid-tied system with Fronius ECO inverter and solar carport.</p></div></div>
+    <div class="project-card" tabindex="0" role="button" aria-haspopup="dialog" data-project="kericho" data-caption="Kericho Township TTI — 20 kWp"><div class="project-thumb" style="background-image:url('assets/images/project-kericho-township-tti.jpg');background-size:cover;background-position:center;" role="img" aria-label="Solar installation at Kericho Township TTI, Kericho County"></div><div class="project-body"><div class="project-kwp">20 kWp · Kericho County</div><h3>Kericho Township TTI</h3><p>20kW hybrid inverter with 51kWh lithium battery storage.</p></div></div>
+  </div>
+</section>
+
+<div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-modal="true" aria-label="Project detail">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <figure class="lightbox-figure">
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <figcaption class="lightbox-caption" id="lightboxCaption"></figcaption>
+  </figure>
+</div>
+
+<section class="impact-section">
+  <div class="impact-inner">
+    <span class="impact-eyebrow">Our impact, in numbers</span>
+    <h2>Two numbers. One reason we exist.</h2>
+
+    <div class="impact-grid">
+
+      <div class="impact-card impact-waste" data-impact-card>
+        <div class="impact-visual" aria-hidden="true">
+          <span class="waste-ring"></span>
+          <span class="waste-particle wp1"></span>
+          <span class="waste-particle wp2"></span>
+          <span class="waste-particle wp3"></span>
+          <span class="waste-particle wp4"></span>
+          <span class="waste-particle wp5"></span>
+          <span class="waste-particle wp6"></span>
+        </div>
+        <div class="impact-value">
+          <span class="impact-number" data-target="430" data-decimals="0">0</span><span class="impact-unit">M tons</span>
+        </div>
+        <p class="impact-label">of plastic produced globally every year — heading to triple by 2060.</p>
+      </div>
+
+      <div class="impact-card impact-energy" data-impact-card>
+        <div class="impact-visual" aria-hidden="true">
+          <span class="sun-core"></span>
+          <span class="sun-ray"></span>
+          <span class="sun-ray"></span>
+          <span class="sun-ray"></span>
+          <span class="sun-ray"></span>
+          <span class="sun-ray"></span>
+          <span class="sun-ray"></span>
+          <span class="sun-ray"></span>
+          <span class="sun-ray"></span>
+        </div>
+        <div class="impact-value">
+          <span class="impact-number" data-target="242.6" data-decimals="1">0</span><span class="impact-unit">kWp</span>
+        </div>
+        <p class="impact-label">of solar capacity installed to date, across our completed projects.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact-form-section" id="contact-form">
+  <div class="cf-inner">
+    <div class="cf-intro">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Tell us about your project.</h2>
+      <p>Whether it's a solar installation for your institution or a PET waste recycling partnership, share a few details and our team will get back to you shortly.</p>
+    </div>
+
+    <form class="cf-card" id="contactForm" novalidate>
+      <input type="hidden" name="access_key" value="18b0d576-3748-4d1f-88ae-ff111186df16">
+      <input type="hidden" name="subject" value="New enquiry from Sarufi website">
+      <input type="hidden" name="from_name" value="Sarufi Energy Group Website">
+      <input type="checkbox" name="botcheck" class="cf-hp" tabindex="-1" autocomplete="off">
+
+      <div class="cf-row">
+        <div class="cf-field" id="field-name">
+          <label for="cf-name">Full name</label>
+          <input type="text" id="cf-name" name="name" placeholder="Jane Mwangi" autocomplete="name">
+          <div class="cf-error-msg">Please enter your name.</div>
+        </div>
+        <div class="cf-field" id="field-email">
+          <label for="cf-email">Email address</label>
+          <input type="email" id="cf-email" name="email" placeholder="jane@example.com" autocomplete="email">
+          <div class="cf-error-msg">Please enter a valid email address.</div>
         </div>
       </div>
-      <div class="pillar-card recycle reveal">
-        <div class="pc-bg" style="background-image:url('assets/recycling-plant-interior.jpg');"></div>
-        <div class="pc-scrim"></div>
-        <div class="pc-body">
-          <span class="pc-tag">02 · Recycling</span>
-          <h3>PET Bottle Waste Recycling</h3>
-          <ul>
-            <li>Collection, sorting &amp; integrated processing</li>
-            <li>PET flakes, staple fibre, film &amp; strapping</li>
-            <li>Community cleanup &amp; circular job creation</li>
-          </ul>
-          <a href="pet-recycling.html" class="btn btn-outline btn-sm">Explore Recycling →</a>
+
+      <div class="cf-row">
+        <div class="cf-field" id="field-phone">
+          <label for="cf-phone">Phone number <span style="font-weight:400;color:var(--ink-soft);">(optional)</span></label>
+          <input type="tel" id="cf-phone" name="phone" placeholder="+254 7XX XXX XXX" autocomplete="tel">
+        </div>
+        <div class="cf-field" id="field-service">
+          <label for="cf-service">I'm interested in</label>
+          <select id="cf-service" name="service">
+            <option value="Energy Management Services">Energy Management Services</option>
+            <option value="PET Bottle Waste Recycling">PET Bottle Waste Recycling</option>
+            <option value="Both / Not sure yet">Both / Not sure yet</option>
+          </select>
         </div>
       </div>
-    </div>
+
+      <div class="cf-field" id="field-message">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" placeholder="Tell us a bit about what you need..."></textarea>
+        <div class="cf-error-msg">Please add a short message.</div>
+      </div>
+
+      <button type="submit" class="cf-submit" id="cfSubmitBtn">Send Message</button>
+      <div class="cf-status" id="cfStatus"></div>
+      <div class="cf-note">We typically reply within 1–2 business days. Your details are only used to respond to your enquiry.</div>
+    </form>
   </div>
 </section>
 
-<!-- ===== STAT BAND ===== -->
-<section class="stat-band">
-  <div class="container">
-    <div class="stat-band-head reveal">
-      <div class="eyebrow on-dark"><span class="loop-mark"></span> Why It Matters</div>
-      <h2>The plastic waste problem, in numbers.</h2>
-      <p>Africa sits at the centre of a global plastic crisis — and at the centre of the opportunity to solve it.</p>
-    </div>
-    <div class="stat-grid reveal">
-      <div class="stat-cell">
-        <div class="num"><span data-count="430">0</span>M<sup>t</sup></div>
-        <div class="lbl">Metric tons of plastic produced annually — set to triple by 2060</div>
+<section class="contact-band" id="contact">
+  <div class="contact-inner">
+    <h3>Let's talk about your next project.</h3>
+    <div class="contact-details">
+      <div class="contact-col">
+        <div class="label">Phone</div>
+        <a href="tel:+254717501501">+254 717 501501</a>
       </div>
-      <div class="stat-cell">
-        <div class="num"><span data-count="25">0</span>%</div>
-        <div class="lbl">Of dumpsite space typically taken up by PET bottle waste</div>
-      </div>
-      <div class="stat-cell">
-        <div class="num"><span data-count="90">0</span>%</div>
-        <div class="lbl">Of ocean plastic waste comes from Africa and Asia</div>
-      </div>
-      <div class="stat-cell">
-        <div class="num"><span data-count="70">0</span>%</div>
-        <div class="lbl">Of plastic consumed in Africa is imported, against 6% produced locally</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== VALUES ===== -->
-<section class="section bg-paper">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow"><span class="loop-mark"></span> Our Values</div>
-      <h2>What holds the circle together.</h2>
-    </div>
-    <div class="values-grid reveal">
-      <div class="value-card">
-        <img src="assets/integrity-puzzle.jpg" alt="Integrity">
-        <div class="vc-scrim"></div>
-        <div class="vc-txt"><div class="n">01</div><h4>Integrity</h4></div>
-      </div>
-      <div class="value-card">
-        <img src="assets/teamwork-gears-hands.jpg" alt="Team Work">
-        <div class="vc-scrim"></div>
-        <div class="vc-txt"><div class="n">02</div><h4>Team Work</h4></div>
-      </div>
-      <div class="value-card">
-        <img src="assets/sustainability-illustration.jpg" alt="Sustainability">
-        <div class="vc-scrim"></div>
-        <div class="vc-txt"><div class="n">03</div><h4>Sustainability</h4></div>
-      </div>
-      <div class="value-card">
-        <img src="assets/technology-solar-tracking.jpg" alt="Technology">
-        <div class="vc-scrim"></div>
-        <div class="vc-txt"><div class="n">04</div><h4>Technology</h4></div>
-      </div>
-      <div class="value-card">
-        <img src="assets/environmental-protection-globe.jpg" alt="Environmental Protection">
-        <div class="vc-scrim"></div>
-        <div class="vc-txt"><div class="n">05</div><h4>Environmental Protection</h4></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PARTNERS ===== -->
-<section class="partners-strip bg-mist">
-  <div class="container">
-    <div class="partners-head reveal">
-      <div class="eyebrow" style="justify-content:center;"><span class="loop-mark"></span> Project Partners</div>
-      <h2 style="font-size:1.9rem;">Trusted by counties, hotels and industry leaders.</h2>
-    </div>
-    <div class="partners-grid reveal">
-      <div class="partner-logo"><img src="assets/partner-redington-final.jpg" alt="Redington"></div>
-      <div class="partner-logo"><img src="assets/partner-homabay-final.jpg" alt="County Government of Homa Bay"></div>
-      <div class="partner-logo"><img src="assets/partner-migori-final.jpg" alt="Migori County Government"></div>
-      <div class="partner-logo"><img src="assets/partner-philips-final.jpg" alt="Philips"></div>
-      <div class="partner-logo"><img src="assets/partner-sentimental-final.jpg" alt="Sentimental Energy Company"></div>
-      <div class="partner-logo"><img src="assets/partner-fonroche-final.jpg" alt="Fonroche Lighting"></div>
-      <div class="partner-logo"><img src="assets/partner-pisu-final.png" alt="Pisu & Co Ltd"></div>
-      <div class="partner-logo"><img src="assets/partner-hillpark-final.png" alt="Hillpark Hotels"></div>
-      <div class="partner-logo"><img src="assets/partner-hthium-final.png" alt="Hthium"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CTA BANNER ===== -->
-<section class="section bg-paper" style="padding-top:0;">
-  <div class="container">
-    <div class="cta-banner reveal">
-      <div class="cb-bg" style="background-image:url('assets/customer-care-headset.jpg');"></div>
-      <div class="cb-scrim"></div>
-      <div class="cb-body">
-        <div class="eyebrow on-dark"><span class="loop-mark"></span> Let's Talk</div>
-        <h2>Ready to build tomorrow, today?</h2>
-        <p>Whether it's an energy audit, a solar rollout, or a PET recycling partnership — our team is ready to imagine it with you.</p>
-      </div>
-      <div class="cb-actions">
-        <a href="contact.html" class="btn btn-primary">Get in Touch</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="nav-logo">
-          <img src="assets/sarufi-logo.png" alt="Sarufi Energy Group logo" style="height:44px;">
-          <span class="nav-logo-text">Sarufi Energy<span>IMAGINE TOMORROW</span></span>
-        </a>
-        <p>Championing clean energy and a circular economy across Kenya and the region — one community, one bottle, one kilowatt at a time.</p>
-      </div>
-      <div class="footer-col">
-        <h5>Navigate</h5>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="energy-services.html">Energy Management Services</a>
-        <a href="pet-recycling.html">PET Bottle Waste Recycling</a>
-        <a href="projects.html">Our Projects</a>
-        <a href="contact.html">Contact Us</a>
-      </div>
-      <div class="footer-col">
-        <h5>Company</h5>
-        <a href="about.html">Vision &amp; Mission</a>
-        <a href="about.html#values">Our Values</a>
-        <a href="about.html#policy">Environmental Policy</a>
-        <a href="index.html#partners">Partners</a>
-      </div>
-      <div class="footer-col">
-        <h5>Get in Touch</h5>
-        <p>Nyati Sacco Plaza<br>Madaraka Roundabout, Nairobi West<br>P.O. Box 27336 – 00100, Nairobi, Kenya</p>
-        <a href="tel:+254721158974">+254 721 158974</a>
+      <div class="contact-col">
+        <div class="label">Email</div>
         <a href="mailto:info@sarufigroup.com">info@sarufigroup.com</a>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span class="cur-year">2026</span> Sarufi Energy Group Ltd. All rights reserved.</span>
-      <div class="footer-bottom-right">
-        <span>Built for a circular tomorrow.</span>
-        <span class="footer-credit">Site by <a href="mailto:bentony424@gmail.com">Tony Muriithi</a></span>
+      <div class="contact-col">
+        <div class="label">Location</div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Nyati+Sacco+Plaza+Madaraka+Roundabout+Nairobi" target="_blank" rel="noopener">Nyati Sacco Plaza, Madaraka Roundabout</a>
+        <div class="social-row">
+          <a href="https://instagram.com/sarufigroupltd" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon social-instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="white" stroke="none"/></svg>
+          </a>
+          <a href="https://facebook.com/SarufiEnergy" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon social-facebook">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M14 13.5h2.5l.5-3H14V8.5c0-.9.25-1.5 1.53-1.5H17V4.3C16.7 4.26 15.7 4.17 14.53 4.17c-2.44 0-4.11 1.49-4.11 4.22V10.5H7.9v3H10.42V20h3.08v-6.5z"/></svg>
+          </a>
+          <a href="https://linkedin.com/company/sarufi-energy-ltd" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon social-linkedin">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM3.5 8.75h3v11.5h-3zM9.5 8.75h2.87v1.57h.04c.4-.75 1.38-1.55 2.84-1.55 3.04 0 3.6 2 3.6 4.6v6.88h-3v-6.1c0-1.46-.03-3.33-2.03-3.33-2.04 0-2.35 1.6-2.35 3.23v6.2h-3z"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </div>
+</section>
+
+<section class="map-section">
+  <div class="map-inner">
+    <span class="eyebrow">Visit us</span>
+    <h2>Find our office.</h2>
+    <p>Nyati Sacco Plaza, Madaraka Roundabout, Nairobi, Kenya.</p>
+    <div class="map-frame">
+      <iframe
+        src="https://www.google.com/maps?q=Nyati+Sacco+Plaza+Madaraka+Roundabout+Nairobi&output=embed"
+        width="100%"
+        height="420"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Map showing Sarufi Energy Group's office at Nyati Sacco Plaza, Madaraka Roundabout, Nairobi">
+      </iframe>
+    </div>
+    <a class="map-directions" href="https://www.google.com/maps/search/?api=1&query=Nyati+Sacco+Plaza+Madaraka+Roundabout+Nairobi" target="_blank" rel="noopener">
+      Get directions
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <span>&copy; <span id="footerYear"></span> Sarufi Energy Group. All rights reserved.</span>
+  <span class="footer-links">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <span aria-hidden="true">·</span>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </span>
 </footer>
 
-<script src="js/main.js"></script>
+<script>
+  const CAPTIONS = {
+    energy: ["Renewable Energy Solutions","Energy Management Systems","Energy Performance Systems","Energy Audit & Assessment","Energy Sustainability","Energy Efficiency Solutions"],
+    pet: ["PET Waste Handling","PET Waste Recycling","PET Value Chain","Environmental Impact & Resource Management","Socio-Economic Benefits","Integrated & Automatic Recycling System"]
+  };
+
+  function buildDots(key){
+    const dotsEl = document.getElementById('dots-'+key);
+    CAPTIONS[key].forEach((_,i)=>{
+      const d = document.createElement('div');
+      d.className = 'dot' + (i===0 ? ' active' : '');
+      dotsEl.appendChild(d);
+    });
+  }
+  buildDots('energy');
+  buildDots('pet');
+
+  // Both widgets are driven by ONE shared clock so they always change together,
+  // and each tick picks a random shared transition effect for both.
+  const EFFECTS = ['effect-fade','effect-slide','effect-zoom'];
+  const widgets = {
+    energy: {
+      root: document.getElementById('carousel-energy'),
+      slides: document.getElementById('carousel-energy').querySelectorAll('.slide'),
+      caption: document.getElementById('caption-energy'),
+      dots: document.querySelectorAll('#dots-energy .dot'),
+      idx: 0
+    },
+    pet: {
+      root: document.getElementById('carousel-pet'),
+      slides: document.getElementById('carousel-pet').querySelectorAll('.slide'),
+      caption: document.getElementById('caption-pet'),
+      dots: document.querySelectorAll('#dots-pet .dot'),
+      idx: 0
+    }
+  };
+
+  let paused = false;
+
+  function advance(){
+    if(paused) return;
+    const effect = EFFECTS[Math.floor(Math.random()*EFFECTS.length)];
+    ['energy','pet'].forEach(key=>{
+      const w = widgets[key];
+      w.root.classList.remove('effect-fade','effect-slide','effect-zoom');
+      w.root.classList.add(effect);
+      const next = (w.idx+1) % w.slides.length;
+      w.slides[w.idx].classList.remove('active');
+      w.dots[w.idx].classList.remove('active');
+      w.idx = next;
+      w.slides[w.idx].classList.add('active');
+      w.dots[w.idx].classList.add('active');
+      w.caption.style.opacity = 0;
+      setTimeout(()=>{
+        w.caption.textContent = CAPTIONS[key][w.idx];
+        w.caption.style.opacity = 1;
+      }, 200);
+    });
+  }
+
+  setInterval(advance, 3000);
+
+  // Hovering either widget pauses BOTH, so they always stay in lockstep.
+  ['widget-energy','widget-pet'].forEach(id=>{
+    const el = document.getElementById(id);
+    el.addEventListener('mouseenter', ()=> paused = true);
+    el.addEventListener('mouseleave', ()=> paused = false);
+  });
+
+  // ---- Mobile hamburger menu ----
+  const navToggle = document.getElementById('navToggle');
+  const navMobilePanel = document.getElementById('navMobilePanel');
+  function closeMobileMenu(){
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded','false');
+    navMobilePanel.classList.remove('open');
+  }
+  navToggle.addEventListener('click', ()=>{
+    const isOpen = navMobilePanel.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  navMobilePanel.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', closeMobileMenu);
+  });
+  window.addEventListener('resize', ()=>{
+    if(window.innerWidth > 980) closeMobileMenu();
+  });
+
+  // ---- Navbar shrink + fade on scroll ----
+  const navIsland = document.getElementById('navIsland');
+  const logoStandalone = document.getElementById('logoStandalone');
+  const phonePill = document.getElementById('phonePill');
+  window.addEventListener('scroll', ()=>{
+    if(window.scrollY > 40){
+      navIsland.classList.add('shrunk');
+      logoStandalone.classList.add('shrunk');
+      phonePill.classList.add('shrunk');
+    } else {
+      navIsland.classList.remove('shrunk');
+      logoStandalone.classList.remove('shrunk');
+      phonePill.classList.remove('shrunk');
+    }
+  });
+
+  // ---- Active nav indicator, driven by which section is on screen ----
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const indicator = document.getElementById('navIndicator');
+  let currentActive = navLinks[0];
+
+  function moveIndicator(el){
+    if(!el) return;
+    indicator.style.width = el.offsetWidth + 'px';
+    indicator.style.transform = `translateX(${el.offsetLeft}px)`;
+    navLinks.forEach(a=>a.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  const sectionKeys = ['home','about','energy','pet','projects'];
+  const sections = sectionKeys.map(key => document.getElementById(key)).filter(Boolean);
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const key = entry.target.id;
+        const link = document.querySelector(`.nav-links a[data-key="${key}"]`);
+        if(link){
+          currentActive = link;
+          moveIndicator(link);
+        }
+      }
+    });
+  }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+
+  sections.forEach(sec => observer.observe(sec));
+
+  window.addEventListener('load', ()=> moveIndicator(navLinks[0]));
+
+  navLinks.forEach(a=>{
+    a.addEventListener('mouseenter', ()=> moveIndicator(a));
+  });
+  document.querySelector('.nav-links').addEventListener('mouseleave', ()=>{
+    moveIndicator(currentActive);
+  });
+</script>
+
+<script>
+  // ---- Project lightbox ----
+  (function(){
+    const overlay = document.getElementById('lightboxOverlay');
+    const imgEl = document.getElementById('lightboxImg');
+    const captionEl = document.getElementById('lightboxCaption');
+    const closeBtn = document.getElementById('lightboxClose');
+    const cards = document.querySelectorAll('.project-card');
+
+    const fullImages = {
+      maasai: 'assets/images/lightbox/project-maasai-national-polytechnic-full.jpg',
+      kwhisero: 'assets/images/lightbox/project-kwhisero-tvc-full.jpg',
+      tharaka: 'assets/images/lightbox/project-tharaka-tvc-marimati-full.jpg',
+      chanzeywe: 'assets/images/lightbox/project-chanzeywe-tvc-full.jpg',
+      planate: 'assets/images/lightbox/project-planate-management-group-full.jpg',
+      kericho: 'assets/images/lightbox/project-kericho-township-tti-full.jpg'
+    };
+
+    let lastFocused = null;
+
+    function openLightbox(card){
+      const key = card.getAttribute('data-project');
+      const caption = card.getAttribute('data-caption') || '';
+      if(!fullImages[key]) return;
+      imgEl.src = fullImages[key];
+      imgEl.alt = caption;
+      captionEl.textContent = caption;
+      overlay.classList.add('open');
+      lastFocused = document.activeElement;
+      closeBtn.focus();
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(){
+      overlay.classList.remove('open');
+      imgEl.src = '';
+      document.body.style.overflow = '';
+      if(lastFocused) lastFocused.focus();
+    }
+
+    cards.forEach(card=>{
+      card.addEventListener('click', ()=> openLightbox(card));
+      card.addEventListener('keydown', (e)=>{
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          openLightbox(card);
+        }
+      });
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+    overlay.addEventListener('click', (e)=>{
+      if(e.target === overlay) closeLightbox();
+    });
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape' && overlay.classList.contains('open')) closeLightbox();
+    });
+  })();
+</script>
+
+<script>
+  // ---- Impact counters: animate on scroll into view ----
+  (function(){
+    const numbers = document.querySelectorAll('.impact-number');
+    if(!numbers.length) return;
+
+    function animateCount(el){
+      const target = parseFloat(el.getAttribute('data-target'));
+      const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+      const duration = 1800;
+      const start = performance.now();
+
+      function tick(now){
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // easeOutExpo for a satisfying "count settling down" feel
+        const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+        const current = target * eased;
+        el.textContent = current.toFixed(decimals).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        if(progress < 1){
+          requestAnimationFrame(tick);
+        } else {
+          el.textContent = target.toFixed(decimals).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const counterObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          animateCount(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    numbers.forEach(el => counterObserver.observe(el));
+  })();
+</script>
+
+<script>
+  // ---- Contact form: validation + Web3Forms submission ----
+  (function(){
+    const form = document.getElementById('contactForm');
+    if(!form) return;
+    const statusEl = document.getElementById('cfStatus');
+    const submitBtn = document.getElementById('cfSubmitBtn');
+
+    function setError(fieldId, show){
+      const field = document.getElementById(fieldId);
+      if(field) field.classList.toggle('cf-error', show);
+    }
+
+    function isValidEmail(v){
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    }
+
+    function validate(){
+      let ok = true;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      setError('field-name', name.length === 0);
+      if(name.length === 0) ok = false;
+
+      const emailOk = email.length > 0 && isValidEmail(email);
+      setError('field-email', !emailOk);
+      if(!emailOk) ok = false;
+
+      setError('field-message', message.length === 0);
+      if(message.length === 0) ok = false;
+
+      return ok;
+    }
+
+    // Clear individual field errors as the user fixes them
+    ['name','email','message'].forEach(key=>{
+      form[key].addEventListener('input', ()=>{
+        if(key === 'name') setError('field-name', form.name.value.trim().length === 0);
+        if(key === 'email') setError('field-email', form.email.value.trim().length > 0 && !isValidEmail(form.email.value.trim()));
+        if(key === 'message') setError('field-message', form.message.value.trim().length === 0);
+      });
+    });
+
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      statusEl.className = 'cf-status';
+      statusEl.textContent = '';
+
+      // Honeypot: if filled, silently drop (bots only)
+      if(form.botcheck.checked){
+        return;
+      }
+
+      if(!validate()){
+        statusEl.classList.add('cf-fail');
+        statusEl.textContent = 'Please fix the highlighted fields and try again.';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      try {
+        const formData = new FormData(form);
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+        const result = await res.json();
+
+        if(result.success){
+          statusEl.classList.add('cf-success');
+          statusEl.textContent = "Thanks — your message has been sent. We'll be in touch shortly.";
+          form.reset();
+        } else {
+          statusEl.classList.add('cf-fail');
+          statusEl.textContent = 'Something went wrong sending your message. Please try again, or email us directly at info@sarufigroup.com.';
+        }
+      } catch(err){
+        statusEl.classList.add('cf-fail');
+        statusEl.textContent = 'Network error — please check your connection and try again, or email info@sarufigroup.com directly.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    });
+  })();
+</script>
+
+<!-- Cloudflare Web Analytics -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f7e39bea81264fad8cea31cb65a1b9c1"}'></script>
+<!-- End Cloudflare Web Analytics -->
+
+<script>
+  const fy = document.getElementById('footerYear');
+  if(fy) fy.textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>

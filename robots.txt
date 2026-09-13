@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bentony424-ops.github.io/sarufi-web/sitemap.xml
