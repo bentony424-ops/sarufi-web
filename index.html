@@ -163,7 +163,7 @@
     pointer-events:auto;
     display:flex;
     align-items:center;
-    gap:16px;
+    gap:14px;
     width:100%;
   }
   .logo-standalone{
@@ -171,8 +171,8 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    width:160px;
-    height:160px;
+    width:138px;
+    height:138px;
     border-radius:50%;
     background:#FDF9F0;
     border:3px solid var(--solar-gold);
@@ -181,30 +181,30 @@
     text-decoration:none;
     box-sizing:border-box;
   }
-  .logo-standalone.shrunk{ width:104px; height:104px; box-shadow:0 8px 18px rgba(15,42,68,0.18); }
+  .logo-standalone.shrunk{ width:116px; height:116px; box-shadow:0 8px 18px rgba(15,42,68,0.18); }
   .logo-standalone img{ width:100%; height:100%; object-fit:contain; padding:12px; }
 
   .nav-island{
     pointer-events:auto;
     display:flex;
     align-items:center;
-    gap:26px;
+    gap:16px;
     flex:1 1 auto;
     min-width:0;
+    overflow:hidden;
     background:
       linear-gradient(135deg, var(--solar-navy) 0%, var(--solar-navy-deep) 100%) padding-box,
       linear-gradient(90deg, var(--energy-mid) 0%, var(--solar-gold) 50%, var(--energy-mid) 100%) border-box;
     border:2px solid transparent;
     border-radius:var(--radius-pill);
-    padding:12px 22px;
+    padding:12px 18px;
     box-shadow:0 16px 40px rgba(10,29,48,0.35);
     transition:padding .45s cubic-bezier(.4,0,.2,1), box-shadow .45s ease, gap .45s ease, opacity .45s ease;
   }
   .nav-island.shrunk{
-    padding:8px 18px;
-    opacity:.94;
+    padding:8px 14px;
     box-shadow:0 8px 22px rgba(10,29,48,0.28);
-    gap:20px;
+    gap:13px;
   }
   .phone-pill{
     flex:0 0 auto;
@@ -230,9 +230,10 @@
     width:44px;
     height:44px;
     border-radius:50%;
-    border:1.5px solid rgba(255,255,255,0.25);
-    background:rgba(255,255,255,0.08);
+    border:2px solid var(--solar-gold);
+    background:var(--solar-navy);
     color:#fff;
+    box-shadow:0 8px 20px rgba(15,42,68,0.24);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -240,7 +241,13 @@
     transition:background .2s ease, transform .2s ease;
     position:relative;
   }
-  .theme-toggle:hover{ background:rgba(255,255,255,0.16); transform:translateY(-1px); }
+  .theme-toggle:hover{ background:var(--solar-navy-deep); transform:translateY(-1px); }
+  [data-theme="dark"] .theme-toggle{
+    background:var(--cream-deep);
+    border-color:var(--solar-gold);
+    box-shadow:0 8px 20px rgba(0,0,0,0.45);
+  }
+  [data-theme="dark"] .theme-toggle:hover{ background:#262E33; }
   .theme-toggle svg{ width:19px; height:19px; position:absolute; transition:opacity .25s ease, transform .25s ease; }
   .icon-moon{ opacity:0; transform:scale(0.6) rotate(-40deg); }
   .icon-sun{ opacity:1; transform:scale(1) rotate(0); }
@@ -249,14 +256,14 @@
   .brand-word{
     font-family:'Poppins',sans-serif;
     font-weight:700;
-    font-size:23px;
+    font-size:21px;
     line-height:1.05;
     white-space:nowrap;
     color:#fff;
     flex:0 0 auto;
     transition:font-size .45s ease;
   }
-  .nav-island.shrunk .brand-word{ font-size:18px; }
+  .nav-island.shrunk .brand-word{ font-size:19px; }
   .brand-word span{ display:block; font-family:'Inter',sans-serif; font-weight:600; font-size:11px; letter-spacing:.08em; color:var(--solar-gold); margin-top:2px; }
 
   .nav-links{
@@ -273,9 +280,10 @@
     text-decoration:none;
     color:rgba(255,255,255,0.88);
     font-family:'Poppins',sans-serif;
-    font-size:15.5px;
+    font-size:15px;
     font-weight:600;
-    padding:11px 16px;
+    padding:11px 12px;
+    z-index:1;
     border-radius:var(--radius-pill);
     transition:color .25s ease, background .25s ease;
     white-space:nowrap;
@@ -290,7 +298,7 @@
     border-radius:var(--radius-pill);
     background:var(--solar-gold);
     transition:transform .4s cubic-bezier(.4,0,.2,1), width .4s cubic-bezier(.4,0,.2,1);
-    z-index:-1;
+    z-index:0;
   }
   .nav-cta{
     flex:0 0 auto;
@@ -384,10 +392,22 @@
 
   .nav-cta{ text-decoration:none; }
 
-  @media (max-width:980px){
+  /* Narrower desktops: step the nav down before it can ever overflow the pill. */
+  @media (max-width:1300px){
+    .logo-standalone{ width:112px; height:112px; }
+    .logo-standalone.shrunk{ width:100px; height:100px; }
+    .nav-row{ gap:12px; }
+    .nav-island{ padding:11px 14px; gap:12px; }
+    .nav-island.shrunk{ padding:8px 12px; gap:10px; }
+    .brand-word{ font-size:19px; }
+    .nav-island.shrunk .brand-word{ font-size:17.5px; }
+    .nav-links a{ font-size:14.2px; padding:10px 10px; }
+  }
+  @media (max-width:1180px){
     .nav-links{ display:none; }
     .nav-toggle{ display:flex; }
     .nav-mobile-panel{ display:block; }
+    .nav-island{ overflow:visible; }
   }
 
   /* ---------- SPACER / SECTION HEADERS ---------- */
