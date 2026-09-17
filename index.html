@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  // Applied immediately (before CSS paints) to avoid a flash of the wrong theme.
+  (function(){
+    try{
+      const saved = localStorage.getItem('sarufi-theme');
+      const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if(theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    }catch(e){}
+  })();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sarufi Energy Group | Renewable Energy &amp; PET Waste Recycling in Kenya</title>
@@ -54,6 +64,43 @@
     --solar-navy-deep:#0A1D30;
     --solar-gold:#E8A94A;
   }
+
+  [data-theme="dark"]{
+    --cream:#14181B;
+    --cream-deep:#1C2226;
+    --ink:#F2F0EA;
+    --ink-soft:#C9CDC7;
+    --line:rgba(255,255,255,0.12);
+  }
+  [data-theme="dark"] body{ background:var(--cream); }
+  [data-theme="dark"] .about-card,
+  [data-theme="dark"] .person-card,
+  [data-theme="dark"] .photo-card,
+  [data-theme="dark"] .project-card,
+  [data-theme="dark"] .widget,
+  [data-theme="dark"] .cf-card,
+  [data-theme="dark"] .lightbox-box,
+  [data-theme="dark"] .stat-card{
+    background:#20262A;
+    border-color:rgba(255,255,255,0.08);
+  }
+  [data-theme="dark"] .logo-standalone{ background:#20262A; }
+  [data-theme="dark"] input,
+  [data-theme="dark"] select,
+  [data-theme="dark"] textarea{
+    background:#181D20;
+    color:var(--ink);
+    border-color:rgba(255,255,255,0.14);
+  }
+  [data-theme="dark"] .testimonials-section{ background:#181D20; }
+  [data-theme="dark"] .value-photo,
+  [data-theme="dark"] .project-thumb,
+  [data-theme="dark"] .photo-card-img,
+  [data-theme="dark"] .qc-photo{
+    filter:brightness(0.88);
+  }
+  html{ transition:background-color .3s ease; }
+  body{ transition:background-color .3s ease, color .3s ease; }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
 
@@ -177,6 +224,28 @@
   .phone-pill.shrunk{ width:42px; height:42px; }
   .phone-pill svg{ width:22px; height:22px; }
   .phone-pill.shrunk svg{ width:18px; height:18px; }
+
+  .theme-toggle{
+    flex:0 0 auto;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    border:1.5px solid rgba(255,255,255,0.25);
+    background:rgba(255,255,255,0.08);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:background .2s ease, transform .2s ease;
+    position:relative;
+  }
+  .theme-toggle:hover{ background:rgba(255,255,255,0.16); transform:translateY(-1px); }
+  .theme-toggle svg{ width:19px; height:19px; position:absolute; transition:opacity .25s ease, transform .25s ease; }
+  .icon-moon{ opacity:0; transform:scale(0.6) rotate(-40deg); }
+  .icon-sun{ opacity:1; transform:scale(1) rotate(0); }
+  [data-theme="dark"] .icon-sun{ opacity:0; transform:scale(0.6) rotate(40deg); }
+  [data-theme="dark"] .icon-moon{ opacity:1; transform:scale(1) rotate(0); color:var(--solar-gold); }
   .brand-word{
     font-family:'Poppins',sans-serif;
     font-weight:700;
@@ -329,6 +398,33 @@
     padding:48px 24px 40px;
     scroll-margin-top:120px;
   }
+  #energy, #pet{ padding-top:0; }
+  .section-band{
+    position:relative;
+    left:50%;
+    right:50%;
+    margin-left:-50vw;
+    margin-right:-50vw;
+    width:100vw;
+    padding:22px 24px;
+    margin-bottom:44px;
+  }
+  .section-band--energy{ background:linear-gradient(90deg, var(--energy-deep) 0%, var(--energy-mid) 100%); }
+  .section-band--pet{ background:linear-gradient(90deg, var(--pet-deep) 0%, var(--pet-mid) 100%); }
+  .section-band-inner{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .section-band-inner svg{ width:26px; height:26px; flex:0 0 auto; }
+  .section-band-inner span{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(19px,2.6vw,26px);
+    color:#fff;
+  }
   #about{
     padding-top:56px;
     padding-bottom:64px;
@@ -396,19 +492,20 @@
     overflow:hidden;
   }
   .qc-photo{
-    flex:0 0 300px;
+    flex:0 0 74%;
     background-size:cover;
-    background-position:center;
-    min-height:340px;
+    background-position:78% 32%;
+    min-height:380px;
   }
-  @media (max-width:760px){ .qc-photo{ display:none; } }
+  @media (max-width:760px){ .qc-photo{ display:none; } .qc-info{ flex:1 1 100% !important; } }
   .qc-info{
-    flex:1 1 auto;
-    padding:34px 38px;
+    flex:0 0 26%;
+    padding:30px 26px;
     display:flex;
     flex-direction:column;
     align-items:flex-start;
-    gap:20px;
+    gap:18px;
+    min-width:0;
   }
   .qc-heading{
     font-family:'Fraunces',serif;
@@ -419,31 +516,49 @@
   .qc-item{
     display:flex;
     align-items:center;
-    gap:16px;
+    gap:12px;
     text-decoration:none;
     color:#fff;
+    width:100%;
   }
+  .qc-copy{
+    margin-left:auto;
+    flex:0 0 auto;
+    width:28px; height:28px;
+    border-radius:50%;
+    border:none;
+    background:rgba(255,255,255,0.1);
+    color:rgba(255,255,255,0.7);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    transition:background .2s ease, color .2s ease, transform .15s ease;
+  }
+  .qc-copy:hover{ background:rgba(255,255,255,0.22); color:#fff; }
+  .qc-copy.copied{ background:var(--solar-gold); color:var(--solar-navy-deep); }
+  .qc-copy svg{ width:14px; height:14px; }
   .qc-icon{
-    width:48px; height:48px;
+    width:38px; height:38px;
     border-radius:50%;
     background:rgba(255,255,255,0.12);
     display:flex; align-items:center; justify-content:center;
     flex:0 0 auto;
     color:var(--solar-gold);
   }
-  .qc-icon svg{ width:22px; height:22px; }
-  .qc-text{ display:flex; flex-direction:column; gap:3px; }
+  .qc-icon svg{ width:18px; height:18px; }
+  .qc-text{ display:flex; flex-direction:column; gap:2px; min-width:0; }
   .qc-label{
-    font-size:12.5px;
+    font-size:11px;
     font-weight:600;
     letter-spacing:.05em;
     color:rgba(255,255,255,0.6);
     text-transform:uppercase;
   }
   .qc-value{
-    font-size:18px;
+    font-size:14.5px;
     font-weight:700;
     color:#fff;
+    line-height:1.3;
+    word-break:break-word;
   }
   a.qc-item:hover .qc-value{ color:var(--solar-gold); }
   .qc-socials{
@@ -1148,6 +1263,73 @@
   .map-directions:hover{ gap:12px; }
 
   /* ---- Impact counter ---- */
+  .testimonials-section{
+    background:var(--cream-deep);
+    padding:80px 24px;
+  }
+  .testimonials-inner{
+    max-width:720px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .testimonials-note{
+    font-size:12.5px;
+    color:var(--energy-accent);
+    background:rgba(217,142,61,0.12);
+    display:inline-block;
+    padding:5px 14px;
+    border-radius:999px;
+    margin:0 0 40px;
+  }
+  .testimonial-carousel{ position:relative; }
+  .testimonial-track{
+    position:relative;
+    min-height:220px;
+  }
+  .testimonial-slide{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transform:translateY(14px) scale(0.98);
+    transition:opacity .6s ease, transform .6s ease;
+    pointer-events:none;
+  }
+  .testimonial-slide.active{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    pointer-events:auto;
+  }
+  .quote-mark{
+    width:34px; height:34px;
+    color:var(--solar-gold);
+    margin:0 auto 12px;
+  }
+  .testimonial-quote{
+    font-family:'Fraunces',serif;
+    font-size:clamp(17px,2.4vw,21px);
+    font-weight:500;
+    line-height:1.55;
+    color:var(--ink);
+    margin:0 0 22px;
+  }
+  .testimonial-author{ display:flex; flex-direction:column; gap:2px; }
+  .ta-name{ font-weight:700; font-size:14.5px; color:var(--energy-deep); }
+  .ta-role{ font-size:12.5px; color:var(--ink-soft); }
+  .testimonial-dots{
+    display:flex; justify-content:center; gap:8px;
+    margin-top:36px;
+  }
+  .testimonial-dots .tdot{
+    width:8px; height:8px;
+    border-radius:50%;
+    border:none;
+    background:var(--line);
+    cursor:pointer;
+    padding:0;
+    transition:background .3s ease, width .3s ease;
+  }
+  .testimonial-dots .tdot.active{ background:var(--solar-gold); width:22px; border-radius:4px; }
+
   .impact-section{
     background:linear-gradient(160deg, var(--solar-navy) 0%, var(--solar-navy-deep) 100%);
     padding:90px 24px;
@@ -1428,6 +1610,10 @@
         <span></span>
       </button>
     </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" type="button">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5A9 9 0 1 1 11.5 3a7 7 0 0 0 9.5 9.5z"/></svg>
+    </button>
     <a class="phone-pill" href="tel:+254717501501" id="phonePill" aria-label="Call Sarufi Energy Group">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
     </a>
@@ -1496,14 +1682,23 @@
       <a href="tel:+254717501501" class="qc-item">
         <span class="qc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
         <span class="qc-text"><span class="qc-label">Phone</span><span class="qc-value">+254 717 501501</span></span>
+        <button type="button" class="qc-copy" data-copy="+254717501501" aria-label="Copy phone number">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
       </a>
       <a href="mailto:info@sarufigroup.com" class="qc-item">
         <span class="qc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
         <span class="qc-text"><span class="qc-label">Email</span><span class="qc-value">info@sarufigroup.com</span></span>
+        <button type="button" class="qc-copy" data-copy="info@sarufigroup.com" aria-label="Copy email address">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
       </a>
       <div class="qc-item">
         <span class="qc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-        <span class="qc-text"><span class="qc-label">Address</span><span class="qc-value">Nyati Sacco Plaza, Madaraka Roundabout</span></span>
+        <span class="qc-text"><span class="qc-label">Address</span><span class="qc-value">Nyati Sacco Plaza, 8th Floor, Madaraka Roundabout, Nairobi West, P.O. Box 27336 – 00100, Nairobi, Kenya</span></span>
+        <button type="button" class="qc-copy" data-copy="Nyati Sacco Plaza, 8th Floor, Madaraka Roundabout, Nairobi West, P.O. Box 27336 – 00100, Nairobi, Kenya" aria-label="Copy address">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
       </div>
       <a href="#contact-form" class="btn-primary qc-cta">Get a Free Quote</a>
       <div class="qc-socials">
@@ -1566,26 +1761,15 @@
   <h3 style="margin-top:40px; font-size:20px; color:var(--energy-deep);">Equal Opportunity</h3>
   <p class="section-lede" style="margin-top:10px;">Sarufi is an equal opportunity employer. We strive to ensure no resident, tenant, volunteer, staff member or applicant receives less favourable treatment on the grounds of disability, sex, gender reassignment, race, colour, nationality, ethnic origin, marital status, sexual orientation, age or religion — and we work to create a culture of mutual respect and tolerance across our whole team.</p>
 
-  <h3 style="margin-top:56px; font-size:20px; color:var(--energy-deep);">Board of Governance</h3>
-  <div class="people-grid">
-    <div class="person-card"><div class="person-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--energy-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Jong Woo Lee</h4><span class="person-title">Board Chair</span></div>
-    <div class="person-card"><div class="person-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--energy-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Nixon Oyugi</h4><span class="person-title">Member</span></div>
-    <div class="person-card"><div class="person-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--energy-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Jae Chul Park</h4><span class="person-title">Member</span></div>
-    <div class="person-card"><div class="person-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--energy-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Ebenezer Amadi</h4><span class="person-title">Member</span></div>
-    <div class="person-card"><div class="person-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--energy-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Zacky Opiyo</h4><span class="person-title">Member</span></div>
-  </div>
-
-  <h3 style="margin-top:52px; font-size:20px; color:var(--pet-deep);">Senior Management</h3>
-  <div class="people-grid people-grid--pet">
-    <div class="person-card"><div class="person-avatar person-avatar--pet"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pet-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Nixon Oyugi</h4><span class="person-title person-title--pet">CEO</span></div>
-    <div class="person-card"><div class="person-avatar person-avatar--pet"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pet-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Ken Odegih</h4><span class="person-title person-title--pet">COO</span></div>
-    <div class="person-card"><div class="person-avatar person-avatar--pet"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pet-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Zacky Opiyo</h4><span class="person-title person-title--pet">Director Legal</span></div>
-    <div class="person-card"><div class="person-avatar person-avatar--pet"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pet-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Reginah Ndirangu</h4><span class="person-title person-title--pet">Director Admin and Finance</span></div>
-    <div class="person-card"><div class="person-avatar person-avatar--pet"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pet-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Julie Odwesso</h4><span class="person-title person-title--pet">Director Business Development &amp; Partnerships</span></div>
-  </div>
 </section>
 
 <section class="section" id="energy">
+  <div class="section-band section-band--energy">
+    <div class="section-band-inner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+      <span>Energy Management Services</span>
+    </div>
+  </div>
   <div class="section-eyebrow">01 · Energy</div>
   <h2 class="section-title">Energy Management Services</h2>
   <p class="section-lede">Energy and waste are two sides of the same circular story — what we save in one, we recover in the other. Sarufi empowers organisations to become more energy-efficient, sustainable and resilient, delivering innovative solutions and comprehensive capacity-building programmes that optimise energy consumption, reduce greenhouse gas emissions, and foster a culture of environmental stewardship.</p>
@@ -1623,6 +1807,12 @@
 </section>
 
 <section class="section" id="pet">
+  <div class="section-band section-band--pet">
+    <div class="section-band-inner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M10 2h4v3l2 3v12a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V8l2-3z"/><path d="M8 12h8"/></svg>
+      <span>PET Bottle Waste Recycling</span>
+    </div>
+  </div>
   <div class="section-eyebrow">02 · Recycling</div>
   <h2 class="section-title">PET Bottle Waste Recycling</h2>
   <p class="section-lede">At Sarufi, we "imagine tomorrow" and work with communities to ensure a global order under the tenets of a circular economy, with a focus on clean and sustainable on- and off-shore environments — through recycling PET bottle waste, championing economic growth by turning waste into resource and waste into power.</p>
@@ -1698,6 +1888,30 @@
   </div>
 </section>
 
+<section class="section" id="team">
+  <div class="section-eyebrow">Who leads us</div>
+  <h2 class="section-title">Board of Governance &amp; Senior Management</h2>
+  <h3 style="margin-top:56px; font-size:20px; color:var(--energy-deep);">Board of Governance</h3>
+  <div class="people-grid">
+    <div class="person-card"><div class="person-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--energy-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Jong Woo Lee</h4><span class="person-title">Board Chair</span></div>
+    <div class="person-card"><div class="person-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--energy-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Nixon Oyugi</h4><span class="person-title">Member</span></div>
+    <div class="person-card"><div class="person-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--energy-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Jae Chul Park</h4><span class="person-title">Member</span></div>
+    <div class="person-card"><div class="person-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--energy-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Ebenezer Amadi</h4><span class="person-title">Member</span></div>
+    <div class="person-card"><div class="person-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--energy-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Zacky Opiyo</h4><span class="person-title">Member</span></div>
+  </div>
+
+  <h3 style="margin-top:52px; font-size:20px; color:var(--pet-deep);">Senior Management</h3>
+  <div class="people-grid people-grid--pet">
+    <div class="person-card"><div class="person-avatar person-avatar--pet"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pet-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Nixon Oyugi</h4><span class="person-title person-title--pet">CEO</span></div>
+    <div class="person-card"><div class="person-avatar person-avatar--pet"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pet-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Ken Odegih</h4><span class="person-title person-title--pet">COO</span></div>
+    <div class="person-card"><div class="person-avatar person-avatar--pet"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pet-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Zacky Opiyo</h4><span class="person-title person-title--pet">Director Legal</span></div>
+    <div class="person-card"><div class="person-avatar person-avatar--pet"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pet-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Reginah Ndirangu</h4><span class="person-title person-title--pet">Director Admin and Finance</span></div>
+    <div class="person-card"><div class="person-avatar person-avatar--pet"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pet-deep)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><h4>Julie Odwesso</h4><span class="person-title person-title--pet">Director Business Development &amp; Partnerships</span></div>
+  </div>
+</section>
+
+
+
 <div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-modal="true" aria-label="Detail view">
   <button class="lightbox-close" id="lightboxClose" aria-label="Close">
     <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
@@ -1765,6 +1979,35 @@
   </div>
 </section>
 
+<section class="testimonials-section">
+  <div class="testimonials-inner">
+    <span class="section-eyebrow" style="text-align:center;">What people say</span>
+    <h2 class="section-title" style="text-align:center; margin:0 auto 8px;">Trusted by institutions across Kenya</h2>
+    <p class="testimonials-note">Placeholder quotes — swap in real client testimonials when available.</p>
+
+    <div class="testimonial-carousel" id="testimonialCarousel">
+      <div class="testimonial-track">
+        <div class="testimonial-slide active">
+          <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 7C6.5 7 4 9.5 4 12.7c0 2.7 1.9 4.8 4.4 4.8.4 0 .7-.3.7-.7 0-.3-.2-.6-.5-.7-1.5-.5-2.4-1.8-2.4-3.2 0-.2 0-.4.1-.6.4.2.9.3 1.4.3 1.7 0 3-1.3 3-3S11.2 7 9.5 7zm9 0C15.5 7 13 9.5 13 12.7c0 2.7 1.9 4.8 4.4 4.8.4 0 .7-.3.7-.7 0-.3-.2-.6-.5-.7-1.5-.5-2.4-1.8-2.4-3.2 0-.2 0-.4.1-.6.4.2.9.3 1.4.3 1.7 0 3-1.3 3-3S20.2 7 18.5 7z"/></svg>
+          <p class="testimonial-quote">"Working with Sarufi meant our campus went from unpredictable power cuts to reliable, clean energy — and the team made the whole process painless from audit to install."</p>
+          <div class="testimonial-author"><span class="ta-name">Client Name</span><span class="ta-role">Role, Institution</span></div>
+        </div>
+        <div class="testimonial-slide">
+          <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 7C6.5 7 4 9.5 4 12.7c0 2.7 1.9 4.8 4.4 4.8.4 0 .7-.3.7-.7 0-.3-.2-.6-.5-.7-1.5-.5-2.4-1.8-2.4-3.2 0-.2 0-.4.1-.6.4.2.9.3 1.4.3 1.7 0 3-1.3 3-3S11.2 7 9.5 7zm9 0C15.5 7 13 9.5 13 12.7c0 2.7 1.9 4.8 4.4 4.8.4 0 .7-.3.7-.7 0-.3-.2-.6-.5-.7-1.5-.5-2.4-1.8-2.4-3.2 0-.2 0-.4.1-.6.4.2.9.3 1.4.3 1.7 0 3-1.3 3-3S20.2 7 18.5 7z"/></svg>
+          <p class="testimonial-quote">"Sarufi's PET recycling programme gave us a genuine partner for our sustainability goals — not just a vendor. They understood our waste challenges and built a system around them."</p>
+          <div class="testimonial-author"><span class="ta-name">Client Name</span><span class="ta-role">Role, Organisation</span></div>
+        </div>
+        <div class="testimonial-slide">
+          <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 7C6.5 7 4 9.5 4 12.7c0 2.7 1.9 4.8 4.4 4.8.4 0 .7-.3.7-.7 0-.3-.2-.6-.5-.7-1.5-.5-2.4-1.8-2.4-3.2 0-.2 0-.4.1-.6.4.2.9.3 1.4.3 1.7 0 3-1.3 3-3S11.2 7 9.5 7zm9 0C15.5 7 13 9.5 13 12.7c0 2.7 1.9 4.8 4.4 4.8.4 0 .7-.3.7-.7 0-.3-.2-.6-.5-.7-1.5-.5-2.4-1.8-2.4-3.2 0-.2 0-.4.1-.6.4.2.9.3 1.4.3 1.7 0 3-1.3 3-3S20.2 7 18.5 7z"/></svg>
+          <p class="testimonial-quote">"From the first site visit to commissioning, communication was clear and the system has performed exactly as promised — real cost savings from month one."</p>
+          <div class="testimonial-author"><span class="ta-name">Client Name</span><span class="ta-role">Role, County Government</span></div>
+        </div>
+      </div>
+      <div class="testimonial-dots" id="testimonialDots"></div>
+    </div>
+  </div>
+</section>
+
 <section class="contact-form-section" id="contact-form">
   <div class="cf-inner">
     <div class="cf-intro">
@@ -1820,42 +2063,11 @@
   </div>
 </section>
 
-<section class="contact-band" id="contact">
-  <div class="contact-inner">
-    <h3>Let's talk about your next project.</h3>
-    <div class="contact-details">
-      <div class="contact-col">
-        <div class="label">Phone</div>
-        <a href="tel:+254717501501">+254 717 501501</a>
-      </div>
-      <div class="contact-col">
-        <div class="label">Email</div>
-        <a href="mailto:info@sarufigroup.com">info@sarufigroup.com</a>
-      </div>
-      <div class="contact-col">
-        <div class="label">Location</div>
-        <a href="https://www.google.com/maps/search/?api=1&query=Nyati+Sacco+Plaza+Madaraka+Roundabout+Nairobi" target="_blank" rel="noopener">Nyati Sacco Plaza, Madaraka Roundabout</a>
-        <div class="social-row">
-          <a href="https://instagram.com/sarufigroupltd" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg>
-          </a>
-          <a href="https://facebook.com/SarufiEnergy" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 8.5h-1.8c-1 0-1.2.5-1.2 1.2V12h3l-.4 3h-2.6v7h-3v-7H7v-3h2v-2.6C9 6.9 10.2 5.5 12.5 5.5H15v3z"/></svg>
-          </a>
-          <a href="https://linkedin.com/company/sarufi-energy-ltd" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><circle cx="7.5" cy="8" r="0.6" fill="currentColor" stroke="none"/><path d="M7.5 11v6M11.5 17v-4a2 2 0 0 1 4 0v4M11.5 13v-2"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="map-section">
   <div class="map-inner">
     <span class="eyebrow">Visit us</span>
     <h2>Find our office.</h2>
-    <p>Nyati Sacco Plaza, Madaraka Roundabout, Nairobi, Kenya.</p>
+    <p>Nyati Sacco Plaza, 8th Floor, Madaraka Roundabout, Nairobi West, P.O. Box 27336 – 00100, Nairobi, Kenya.</p>
     <div class="map-frame">
       <iframe
         src="https://www.google.com/maps?q=Nyati+Sacco+Plaza+Madaraka+Roundabout+Nairobi&output=embed"
@@ -1865,7 +2077,7 @@
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
-        title="Map showing Sarufi Energy Group's office at Nyati Sacco Plaza, Madaraka Roundabout, Nairobi">
+        title="Map showing Sarufi Energy Group's office at Nyati Sacco Plaza, 8th Floor, Madaraka Roundabout, Nairobi West">
       </iframe>
     </div>
     <a class="map-directions" href="https://www.google.com/maps/search/?api=1&query=Nyati+Sacco+Plaza+Madaraka+Roundabout+Nairobi" target="_blank" rel="noopener">
@@ -1976,18 +2188,46 @@
   });
 
   // ---- Navbar shrink + fade on scroll ----
+  // Uses two thresholds (not one) so the state can't flicker back and forth
+  // when the page happens to rest right at the boundary.
   const navIsland = document.getElementById('navIsland');
   const logoStandalone = document.getElementById('logoStandalone');
   const phonePill = document.getElementById('phonePill');
+
+  // On phones, keep the native tel: link so it opens the real dialer directly.
+  // On desktop/laptop, Windows/macOS have no single default calling app, so
+  // tel: just pops up a confusing "pick an app" chooser — link to WhatsApp instead.
+  (function(){
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.matchMedia('(pointer: coarse)').matches;
+    if(!isMobile){
+      phonePill.setAttribute('href', 'https://wa.me/254717501501');
+      phonePill.setAttribute('target', '_blank');
+      phonePill.setAttribute('rel', 'noopener');
+      phonePill.setAttribute('aria-label', 'Chat with Sarufi Energy Group on WhatsApp');
+    }
+  })();
+  const SHRINK_ON = 70;
+  const SHRINK_OFF = 25;
+  let isShrunk = false;
+  let scrollTicking = false;
+
+  function applyShrinkState(){
+    const y = window.scrollY;
+    if(!isShrunk && y > SHRINK_ON){
+      isShrunk = true;
+    } else if(isShrunk && y < SHRINK_OFF){
+      isShrunk = false;
+    }
+    navIsland.classList.toggle('shrunk', isShrunk);
+    logoStandalone.classList.toggle('shrunk', isShrunk);
+    phonePill.classList.toggle('shrunk', isShrunk);
+    scrollTicking = false;
+  }
+
   window.addEventListener('scroll', ()=>{
-    if(window.scrollY > 40){
-      navIsland.classList.add('shrunk');
-      logoStandalone.classList.add('shrunk');
-      phonePill.classList.add('shrunk');
-    } else {
-      navIsland.classList.remove('shrunk');
-      logoStandalone.classList.remove('shrunk');
-      phonePill.classList.remove('shrunk');
+    if(!scrollTicking){
+      requestAnimationFrame(applyShrinkState);
+      scrollTicking = true;
     }
   });
 
@@ -2329,6 +2569,97 @@
         submitBtn.textContent = 'Send Message';
       }
     });
+  })();
+
+  // ---- Dark mode toggle ----
+  (function(){
+    const btn = document.getElementById('themeToggle');
+    function isDark(){ return document.documentElement.getAttribute('data-theme') === 'dark'; }
+    function updateLabel(){
+      btn.setAttribute('aria-label', isDark() ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+    updateLabel();
+    btn.addEventListener('click', ()=>{
+      const next = isDark() ? 'light' : 'dark';
+      if(next === 'dark'){
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+      try{ localStorage.setItem('sarufi-theme', next); }catch(e){}
+      updateLabel();
+    });
+  })();
+
+  // ---- Copy to clipboard (phone / email / address) ----
+  document.querySelectorAll('.qc-copy').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      e.stopPropagation();
+      const text = btn.getAttribute('data-copy');
+      const done = ()=>{
+        const original = btn.innerHTML;
+        btn.classList.add('copied');
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+        setTimeout(()=>{
+          btn.classList.remove('copied');
+          btn.innerHTML = original;
+        }, 1600);
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done).catch(()=>{
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          done();
+        });
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        done();
+      }
+    });
+  });
+
+  // ---- Testimonials carousel ----
+  (function(){
+    const track = document.querySelector('#testimonialCarousel .testimonial-track');
+    if(!track) return;
+    const slides = track.querySelectorAll('.testimonial-slide');
+    const dotsEl = document.getElementById('testimonialDots');
+    let idx = 0;
+    let paused = false;
+
+    slides.forEach((_, i)=>{
+      const d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'tdot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Show testimonial ' + (i+1));
+      d.addEventListener('click', ()=> show(i));
+      dotsEl.appendChild(d);
+    });
+    const dots = dotsEl.querySelectorAll('.tdot');
+
+    function show(i){
+      slides[idx].classList.remove('active');
+      dots[idx].classList.remove('active');
+      idx = (i + slides.length) % slides.length;
+      slides[idx].classList.add('active');
+      dots[idx].classList.add('active');
+    }
+
+    setInterval(()=>{ if(!paused) show(idx + 1); }, 5000);
+
+    const carousel = document.getElementById('testimonialCarousel');
+    carousel.addEventListener('mouseenter', ()=> paused = true);
+    carousel.addEventListener('mouseleave', ()=> paused = false);
   })();
 </script>
 
